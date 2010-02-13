@@ -20,7 +20,6 @@ import org.apache.commons.beanutils.BeanUtils;
 import org.apache.commons.beanutils.PropertyUtils;
 import org.apache.commons.lang.ClassUtils;
 import org.apache.commons.lang.StringUtils;
-import org.apache.log4j.Logger;
 import org.hibernate.annotations.Entity;
 import org.springframework.context.annotation.Bean;
 import org.springframework.ui.Model;
@@ -31,7 +30,6 @@ import com.googlecode.menugen.exception.MenuGenRuntimeException;
  * Provides utility methods for Classes.
  */
 public class ClassUtility {
-	private static final Logger LOG = Logger.getLogger(ClassUtility.class);
 	private static final String CLASS_SEPARATOR = "\\.";
 
 	private static final String FILE_SEPARATOR = "/";
