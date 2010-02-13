@@ -14,8 +14,7 @@ import com.googlecode.menugen.domain.Ingredient;
 import com.googlecode.menugen.service.IngredientService;
 
 /**
- * @author tstavenger
- * 
+ * Perform CRUD services on {@link Ingredient}
  */
 @Service
 public class IngredientServiceImpl implements IngredientService {
@@ -23,12 +22,15 @@ public class IngredientServiceImpl implements IngredientService {
 	@Autowired
 	private IngredientDao ingredientDao;
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Create a new {@link Ingredient}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.IngredientService#create(com.googlecode
-	 * .menugen.domain.Ingredient)
+	 * @param ingredient
+	 *            {@link Ingredient} to create
+	 * @return new {@link Ingredient}
+	 * 
+	 * @see com.googlecode.menugen.service.IngredientService#create(com.googlecode
+	 *      .menugen.domain.Ingredient)
 	 */
 	@Override
 	@Transactional
@@ -36,12 +38,14 @@ public class IngredientServiceImpl implements IngredientService {
 		return ingredientDao.saveOrUpdate(ingredient);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Delete an existing {@link Ingredient}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.IngredientService#delete(com.googlecode
-	 * .menugen.domain.Ingredient)
+	 * @param ingredient
+	 *            existing {@link Ingredient} to delete
+	 * 
+	 * @see com.googlecode.menugen.service.IngredientService#delete(com.googlecode
+	 *      .menugen.domain.Ingredient)
 	 */
 	@Override
 	@Transactional
@@ -49,8 +53,10 @@ public class IngredientServiceImpl implements IngredientService {
 		ingredientDao.delete(ingredient);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Retrieve all {@link Ingredient} in alphabetical order.
+	 * 
+	 * @return List of {@link Ingredient}
 	 * 
 	 * @see com.googlecode.menugen.service.IngredientService#retrieve()
 	 */
@@ -60,12 +66,15 @@ public class IngredientServiceImpl implements IngredientService {
 		return ingredientDao.findAll();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Update an existing {@link Ingredient}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.IngredientService#update(com.googlecode
-	 * .menugen.domain.Ingredient)
+	 * @param ingredient
+	 *            existing {@link Ingredient} to update
+	 * @return updated {@link Ingredient}
+	 * 
+	 * @see com.googlecode.menugen.service.IngredientService#update(com.googlecode
+	 *      .menugen.domain.Ingredient)
 	 */
 	@Override
 	@Transactional

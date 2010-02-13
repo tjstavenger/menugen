@@ -14,20 +14,22 @@ import com.googlecode.menugen.domain.Unit;
 import com.googlecode.menugen.service.UnitService;
 
 /**
- * @author tstavenger
- * 
+ * Perform CRUD services on {@link Unit}
  */
 @Service
 public class UnitServiceImpl implements UnitService {
 	@Autowired
 	private UnitDao unitDao;
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Create a new {@link Unit}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.UnitService#create(com.googlecode.menugen
-	 * .domain.Unit)
+	 * @param unit
+	 *            {@link Unit} to create
+	 * @return new {@link Unit}
+	 * 
+	 * @see com.googlecode.menugen.service.UnitService#create(com.googlecode.menugen
+	 *      .domain.Unit)
 	 */
 	@Override
 	@Transactional
@@ -35,12 +37,14 @@ public class UnitServiceImpl implements UnitService {
 		return unitDao.saveOrUpdate(unit);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Delete an existing {@link Unit}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.UnitService#delete(com.googlecode.menugen
-	 * .domain.Unit)
+	 * @param unit
+	 *            existing {@link Unit} to delete
+	 * 
+	 * @see com.googlecode.menugen.service.UnitService#delete(com.googlecode.menugen
+	 *      .domain.Unit)
 	 */
 	@Override
 	@Transactional
@@ -48,8 +52,10 @@ public class UnitServiceImpl implements UnitService {
 		unitDao.delete(unit);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Retrieve all {@link Unit} in alphabetical order.
+	 * 
+	 * @return List of {@link Unit}
 	 * 
 	 * @see com.googlecode.menugen.service.UnitService#retrieve()
 	 */
@@ -59,12 +65,15 @@ public class UnitServiceImpl implements UnitService {
 		return unitDao.findAll();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Update an existing {@link Unit}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.UnitService#update(com.googlecode.menugen
-	 * .domain.Unit)
+	 * @param unit
+	 *            existing {@link Unit} to update
+	 * @return updated {@link Unit}
+	 * 
+	 * @see com.googlecode.menugen.service.UnitService#update(com.googlecode.menugen
+	 *      .domain.Unit)
 	 */
 	@Override
 	@Transactional
