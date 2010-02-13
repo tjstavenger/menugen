@@ -7,10 +7,12 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+import com.googlecode.menugen.domain.DomainObject;
+
 /**
  * Super interface for all DAOs.
  */
-public interface DataAccessObject<T, ID extends Serializable> {
+public interface DataAccessObject<T extends DomainObject, ID extends Serializable> {
 
 	/**
 	 * Get all instances of the persistent class

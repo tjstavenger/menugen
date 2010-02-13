@@ -17,6 +17,7 @@ import org.hibernate.criterion.Criterion;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import com.googlecode.menugen.dao.DataAccessObject;
+import com.googlecode.menugen.domain.DomainObject;
 import com.googlecode.menugen.utility.ClassUtility;
 
 /**
@@ -24,7 +25,7 @@ import com.googlecode.menugen.utility.ClassUtility;
  * 
  * @see https://www.hibernate.org/328.html
  */
-public abstract class DataAccessObjectImpl<T, ID extends Serializable>
+public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Serializable>
 		implements DataAccessObject<T, ID> {
 	private static final String UNCHECKED = "unchecked";
 
