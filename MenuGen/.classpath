@@ -38,5 +38,6 @@
 	<classpathentry kind="lib" path="lib/beanlib/beanlib-5.0.2beta.jar"/>
 	<classpathentry kind="lib" path="lib/beanlib/beanlib-hibernate-5.0.2beta.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-beanutils-1.8.2.jar" sourcepath="etc/source/commons/commons-beanutils-1.8.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/hibernate/ejb3-persistence.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
