@@ -21,10 +21,11 @@ import com.googlecode.menugen.utility.ClassUtility;
 import com.googlecode.menugen.utility.SerializationUtility;
 
 /**
- * @author tstavenger
- * 
+ * Base super class supporting default implementations of {@link #clone()},
+ * {@link Comparable#compareTo(Object)}, {@link #toString()},
+ * {@link #hashCode()}, and {@link #equals(Object)}.
  */
-public class DataObject implements Serializable, Cloneable, Comparable {
+public class DomainObject implements Serializable, Cloneable, Comparable {
 	private static final long serialVersionUID = 1L;
 
 	private static final String HANDLER = "handler";
@@ -77,7 +78,7 @@ public class DataObject implements Serializable, Cloneable, Comparable {
 	 * @see SerializationUtility#deserialize(String)
 	 */
 	@SuppressWarnings("unchecked")
-	public <T extends DataObject> T copy() {
+	public <T extends DomainObject> T copy() {
 		T copy = (T) ClassUtility.deepCopy(this);
 
 		return copy;
