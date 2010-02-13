@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.0.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.0.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+	<!-- Enable Spring Annotation Configuration -->
+	<context:annotation-config />
+
+	<!--
+		Scan for all Spring annotated service, external, domain, and web
+		utility components
+	-->
+	<context:component-scan
+		base-package="org.swri.tspi.tcg.service,org.swri.tspi.tcg.external,org.swri.tspi.tcg.domain,org.swri.tspi.tcg.web.utility,org.swri.tspi.tcg.common,org.swri.tspi.tcg.web.flex" />
+
+	<!-- Enable Spring/AspectJ AOP -->
+	<aop:config />
+
+	<!-- Hibernate Configuration and Spring AOP Transactions -->
+	<bean id="transactionManager"
+		class="org.springframework.orm.hibernate3.HibernateTransactionManager">
+		<property name="sessionFactory" ref="appSessionFactory" />
+	</bean>
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
+		<property name="url" value="${appDataSource.url}" />
+		<property name="username" value="${appDataSource.username}" />
+		<property name="password" value="${appDataSource.password}" />
+	</bean>
+
+	<bean id="sessionFactory"
+		class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean"
+		destroy-method="destroy">
+		<property name="configurationClass" value="org.hibernate.cfg.AnnotationConfiguration" />
+		<property name="packagesToScan" value="com.googlecode.menugen.domain" />
+		<property name="dataSource" ref="dataSource" />
+		<property name="hibernateProperties">
+			<props>
+				<prop key="hibernate.dialect">org.hibernate.dialect.DerbyDialect</prop>
+				<!--<prop key="hibernate.show_sql">true</prop>-->
+				<!--<prop key="hibernate.hbm2ddl.auto">create</prop>-->
+			</props>
+		</property>
+	</bean>
+</beans>
