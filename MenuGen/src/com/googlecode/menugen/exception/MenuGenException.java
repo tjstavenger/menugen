@@ -4,42 +4,47 @@
 package com.googlecode.menugen.exception;
 
 /**
- * @author tstavenger
- * 
+ * Checked exception super class for MenuGen application
  */
 public class MenuGenException extends Exception {
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * 
+	 * New exception without a message.
 	 */
 	public MenuGenException() {
-		// TODO Auto-generated constructor stub
+		super();
 	}
 
 	/**
-	 * @param arg0
+	 * New exception with a message.
+	 * 
+	 * @param message
+	 *            String exception message
 	 */
-	public MenuGenException(String arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
+	public MenuGenException(String message) {
+		super(message);
 	}
 
 	/**
-	 * @param arg0
+	 * New chained exception without a message.
+	 * 
+	 * @param throwable
+	 *            Throwable to chain
 	 */
-	public MenuGenException(Throwable arg0) {
-		super(arg0);
-		// TODO Auto-generated constructor stub
+	public MenuGenException(Throwable throwable) {
+		super(throwable);
 	}
 
 	/**
-	 * @param arg0
-	 * @param arg1
+	 * New chained exception with a message.
+	 * 
+	 * @param message
+	 *            String exception message
+	 * @param throwable
+	 *            Throwable to chain
 	 */
-	public MenuGenException(String arg0, Throwable arg1) {
-		super(arg0, arg1);
-		// TODO Auto-generated constructor stub
+	public MenuGenException(String message, Throwable throwable) {
+		super(message, throwable);
 	}
-
 }
