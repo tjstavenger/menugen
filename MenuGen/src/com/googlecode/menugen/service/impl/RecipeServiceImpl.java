@@ -15,8 +15,7 @@ import com.googlecode.menugen.domain.Recipe;
 import com.googlecode.menugen.service.RecipeService;
 
 /**
- * @author tstavenger
- * 
+ * Perform CRUD services on {@link Recipe}
  */
 @Service
 public class RecipeServiceImpl implements RecipeService {
@@ -24,12 +23,15 @@ public class RecipeServiceImpl implements RecipeService {
 	@Autowired
 	private RecipeDao recipeDao;
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Create a new {@link Recipe}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.RecipeService#create(com.googlecode.menugen
-	 * .domain.Recipe)
+	 * @param recipe
+	 *            {@link Recipe} to create
+	 * @return new {@link Recipe}
+	 * 
+	 * @see com.googlecode.menugen.service.RecipeService#create(com.googlecode.menugen
+	 *      .domain.Recipe)
 	 */
 	@Override
 	@Transactional
@@ -37,12 +39,14 @@ public class RecipeServiceImpl implements RecipeService {
 		return recipeDao.saveOrUpdate(recipe);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Delete an existing {@link Recipe}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.RecipeService#delete(com.googlecode.menugen
-	 * .domain.Recipe)
+	 * @param recipe
+	 *            existing {@link Recipe} to delete
+	 * 
+	 * @see com.googlecode.menugen.service.RecipeService#delete(com.googlecode.menugen
+	 *      .domain.Recipe)
 	 */
 	@Override
 	@Transactional
@@ -50,11 +54,14 @@ public class RecipeServiceImpl implements RecipeService {
 		recipeDao.delete(recipe);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Retrieve a Recipe with the given ID
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.RecipeService#retrieve(java.lang.Long)
+	 * @param id
+	 *            Long {@link Recipe} ID
+	 * @return {@link Recipe} with the given ID
+	 * 
+	 * @see com.googlecode.menugen.service.RecipeService#retrieve(java.lang.Long)
 	 */
 	@Override
 	@Transactional(readOnly = true)
@@ -62,11 +69,14 @@ public class RecipeServiceImpl implements RecipeService {
 		return recipeDao.findById(id);
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Search for recipes matching the given criteria.
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.RecipeService#search(java.lang.String)
+	 * @param criteria
+	 *            String search criteria
+	 * @return List of {@link Recipe} matching the given criteria
+	 * 
+	 * @see com.googlecode.menugen.service.RecipeService#search(java.lang.String)
 	 */
 	@Override
 	@Transactional(readOnly = true)
@@ -74,12 +84,15 @@ public class RecipeServiceImpl implements RecipeService {
 		return Collections.emptyList();
 	}
 
-	/*
-	 * (non-Javadoc)
+	/**
+	 * Update an existing {@link Recipe}
 	 * 
-	 * @see
-	 * com.googlecode.menugen.service.RecipeService#update(com.googlecode.menugen
-	 * .domain.Recipe)
+	 * @param recipe
+	 *            existing {@link Recipe} to update
+	 * @return updated {@link Recipe}
+	 * 
+	 * @see com.googlecode.menugen.service.RecipeService#update(com.googlecode.menugen
+	 *      .domain.Recipe)
 	 */
 	@Override
 	@Transactional
