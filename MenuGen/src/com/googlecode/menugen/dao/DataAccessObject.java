@@ -22,7 +22,7 @@ public interface DataAccessObject<T extends DomainObject, ID extends Serializabl
 	List<T> findAll();
 
 	/**
-	 * Load the persistent class by ID without locking.
+	 * Load the persistent class by ID.
 	 * 
 	 * @param id
 	 *            ID

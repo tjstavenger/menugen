@@ -207,7 +207,7 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	}
 
 	/**
-	 * Load the persistent class by ID without locking.
+	 * Load the persistent class by ID.
 	 * 
 	 * @param id
 	 *            ID
