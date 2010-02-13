@@ -31,10 +31,10 @@
 
 	<bean id="dataSource"
 		class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver" />
-		<property name="url" value="${appDataSource.url}" />
-		<property name="username" value="${appDataSource.username}" />
-		<property name="password" value="${appDataSource.password}" />
+		<property name="driverClassName" value="org.apache.derby.jdbc.EmbeddedDriver" />
+		<property name="url" value="jdbc:derby:springexample;create=true" />
+		<property name="username" value="menugen" />
+		<property name="password" value="menugen" />
 	</bean>
 
 	<bean id="sessionFactory"
