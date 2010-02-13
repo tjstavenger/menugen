@@ -3,6 +3,7 @@
  */
 package com.googlecode.menugen.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
@@ -18,9 +19,9 @@ public class MeasuredIngredient extends DomainObject {
 	@Id
 	private Long id;
 	private double amount;
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Unit unit;
-	@ManyToOne
+	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Ingredient ingredient;
 
 	/**

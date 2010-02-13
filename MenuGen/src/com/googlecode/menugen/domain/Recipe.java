@@ -6,6 +6,7 @@ package com.googlecode.menugen.domain;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -23,7 +24,7 @@ public class Recipe extends DomainObject {
 	private Integer serves;
 	private Double prepartionTime;
 	private Double cookingTime;
-	@OneToMany
+	@OneToMany(cascade = { CascadeType.ALL })
 	private List<MeasuredIngredient> ingredients = new ArrayList<MeasuredIngredient>(
 			0);
 	private List<String> instructions = new ArrayList<String>(0);
