@@ -17,7 +17,7 @@
 	<classpathentry kind="lib" path="lib/spring/org.springframework.asm-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.aspects-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.beans-3.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring/org.springframework.context-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/spring/org.springframework.context-3.0.0.RELEASE.jar" sourcepath="etc/source/spring/org.springframework.context-sources-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.context.support-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.core-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.expression-3.0.0.RELEASE.jar"/>
