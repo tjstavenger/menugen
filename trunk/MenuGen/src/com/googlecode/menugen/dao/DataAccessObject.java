@@ -22,18 +22,6 @@ public interface DataAccessObject<T extends DomainObject, ID extends Serializabl
 	List<T> findAll();
 
 	/**
-	 * Load the persistent class by ID with the {@link LockMode#UPGRADE} if lock
-	 * is true.
-	 * 
-	 * @param id
-	 *            ID
-	 * @param lock
-	 *            boolean true if {@link LockMode#UPGRADE}
-	 * @return persistent class
-	 */
-	T findById(ID id, boolean lock);
-
-	/**
 	 * Load the persistent class by ID without locking.
 	 * 
 	 * @param id

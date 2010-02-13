@@ -9,7 +9,6 @@ import java.util.Collection;
 import java.util.List;
 
 import org.hibernate.Criteria;
-import org.hibernate.LockMode;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -27,7 +26,6 @@ import com.googlecode.menugen.utility.ClassUtility;
  */
 public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Serializable>
 		implements DataAccessObject<T, ID> {
-	private static final String UNCHECKED = "unchecked";
 
 	@Autowired
 	private SessionFactory sessionFactory;
@@ -56,7 +54,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 * @see #createQuery(String)
 	 * @see Query#list()
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected final List<T> listQuery(String hql) {
 		Query query = createQuery(hql);
 		List<T> results = query.list();
@@ -71,7 +68,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 *            String HQL
 	 * @return unique result
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected final T uniqueResultQuery(String hql) {
 		Query query = createQuery(hql);
 		T result = (T) query.uniqueResult();
@@ -99,7 +95,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 *            {@link Class} persistent class
 	 * @return {@link Criteria}
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected final Criteria createCriteria(Class persistentClass) {
 		Session session = getCurrentSession();
 		Criteria criteria = session.createCriteria(persistentClass);
@@ -113,7 +108,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 * 
 	 * @return {@link Criteria}
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected final Criteria createCriteria() {
 		Class persistentClass = getPersistentClass();
 		Criteria criteria = createCriteria(persistentClass);
@@ -129,7 +123,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 * 
 	 * @see ClassUtility#getGenericType(Class, int)
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected final Class getPersistentClass() {
 		return ClassUtility.getGenericType(getClass(), 0);
 	}
@@ -141,7 +134,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 * 
 	 * @see ClassUtility#getGenericType(Class, int)
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected final Class getIdClass() {
 		return ClassUtility.getGenericType(getClass(), 1);
 	}
@@ -154,7 +146,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 *            varargs list of Criterion to find
 	 * @return List of persistent classes
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected List<T> findByCriteria(Criterion... criterion) {
 		return findByCriteria(getPersistentClass(), criterion);
 	}
@@ -168,7 +159,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 *            varargs list of Criterion to find
 	 * @return List of persistent classes
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected List findByCriteria(Class persistentClass, Criterion... criterion) {
 		Criteria criteria = getCurrentSession().createCriteria(
 				getPersistentClass());
@@ -189,7 +179,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 * @return unique persistent instance or null if the query returns no
 	 *         results
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected T findUniqueByCriteria(Criterion... criterion) {
 		return (T) findUniqueByCriteria(getPersistentClass(), criterion);
 	}
@@ -205,7 +194,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 * @return unique persistent instance or null if the query returns no
 	 *         results
 	 */
-	@SuppressWarnings(UNCHECKED)
 	protected Object findUniqueByCriteria(Class persistentClass,
 			Criterion... criterion) {
 		Criteria criteria = getCurrentSession().createCriteria(
@@ -219,31 +207,6 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	}
 
 	/**
-	 * Load the persistent class by ID with the {@link LockMode#UPGRADE} if lock
-	 * is true.
-	 * 
-	 * @param id
-	 *            ID
-	 * @param lock
-	 *            boolean true if {@link LockMode#UPGRADE}
-	 * @return persistent class
-	 */
-	@Override
-	@SuppressWarnings(UNCHECKED)
-	public T findById(ID id, boolean lock) {
-		T entity;
-
-		if (lock) {
-			entity = (T) getCurrentSession().load(getPersistentClass(), id,
-					LockMode.UPGRADE);
-		} else {
-			entity = (T) getCurrentSession().load(getPersistentClass(), id);
-		}
-
-		return entity;
-	}
-
-	/**
 	 * Load the persistent class by ID without locking.
 	 * 
 	 * @param id
@@ -252,7 +215,9 @@ public abstract class DataAccessObjectImpl<T extends DomainObject, ID extends Se
 	 */
 	@Override
 	public T findById(ID id) {
-		return findById(id, false);
+		T entity = (T) getCurrentSession().load(getPersistentClass(), id);
+
+		return entity;
 	}
 
 	/**
