@@ -8,8 +8,11 @@ import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+
+import org.hibernate.annotations.CollectionOfElements;
 
 /**
  * A list of measured ingredients and instructions to make the recipe.
@@ -19,6 +22,7 @@ public class Recipe extends DomainObject {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	private Long id;
 	private Integer serves;
 	private Double prepartionTime;
@@ -26,7 +30,9 @@ public class Recipe extends DomainObject {
 	@OneToMany(cascade = { CascadeType.ALL })
 	private List<MeasuredIngredient> ingredients = new ArrayList<MeasuredIngredient>(
 			0);
+	@CollectionOfElements
 	private List<String> instructions = new ArrayList<String>(0);
+	@CollectionOfElements
 	private List<String> notes = new ArrayList<String>(0);
 
 	/**
