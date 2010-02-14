@@ -8,9 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import com.googlecode.menugen.domain.Ingredient;
-import com.googlecode.menugen.domain.Unit;
 import com.googlecode.menugen.service.IngredientService;
-import com.googlecode.menugen.service.UnitService;
 import com.googlecode.menugen.test.MenuGenTestCase;
 
 /**
