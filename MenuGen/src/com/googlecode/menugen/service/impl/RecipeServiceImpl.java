@@ -3,7 +3,6 @@
  */
 package com.googlecode.menugen.service.impl;
 
-import java.util.Collections;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -81,7 +80,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Recipe> search(String criteria) {
-		return Collections.emptyList();
+		return recipeDao.findAll();
 	}
 
 	/**
