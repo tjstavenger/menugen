@@ -3,6 +3,7 @@
  */
 package com.googlecode.menugen.domain;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -17,7 +18,9 @@ public class Unit extends DomainObject {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column(length = 20)
 	private String abbreviation;
+	@Column(length = 2000)
 	private String name;
 
 	/**
