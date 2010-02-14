@@ -5,6 +5,7 @@ package com.googlecode.menugen.domain.test;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.test.context.transaction.TransactionConfiguration;
 
 import com.googlecode.menugen.domain.Unit;
 import com.googlecode.menugen.service.UnitService;
@@ -13,6 +14,7 @@ import com.googlecode.menugen.test.MenuGenTestCase;
 /**
  * Load {@link Unit} data
  */
+@TransactionConfiguration(defaultRollback = false)
 public class UnitTest extends MenuGenTestCase {
 
 	@Autowired

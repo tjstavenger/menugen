@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -24,6 +25,8 @@ public class Recipe extends DomainObject {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column(length = 2000)
+	private String name;
 	private Integer serves;
 	private Double prepartionTime;
 	private Double cookingTime;
@@ -31,8 +34,10 @@ public class Recipe extends DomainObject {
 	private List<MeasuredIngredient> ingredients = new ArrayList<MeasuredIngredient>(
 			0);
 	@CollectionOfElements
+	@Column(length = 2000)
 	private List<String> instructions = new ArrayList<String>(0);
 	@CollectionOfElements
+	@Column(length = 2000)
 	private List<String> notes = new ArrayList<String>(0);
 
 	/**
@@ -138,6 +143,21 @@ public class Recipe extends DomainObject {
 	 */
 	public void setNotes(List<String> notes) {
 		this.notes = notes;
+	}
+
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * @param name
+	 *            the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
 	}
 
 }

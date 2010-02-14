@@ -4,6 +4,7 @@
 package com.googlecode.menugen.domain;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -20,6 +21,7 @@ public class MeasuredIngredient extends DomainObject {
 	@Id
 	@GeneratedValue
 	private Long id;
+	@Column(length = 2000)
 	private double amount;
 	@ManyToOne(cascade = { CascadeType.PERSIST })
 	private Unit unit;
