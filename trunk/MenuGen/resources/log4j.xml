@@ -20,10 +20,14 @@
 		<level value="debug" />
 		<appender-ref ref="console" />
 	</logger>
+	
+	<logger name="org.hibernate" additivity="false">
+		<level value="debug" />
+		<appender-ref ref="console" />
+	</logger>
 
 	<root>
 		<priority value="error" />
 		<appender-ref ref="console" />
 	</root>
-
 </log4j:configuration>

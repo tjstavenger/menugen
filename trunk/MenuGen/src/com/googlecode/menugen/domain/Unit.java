@@ -3,9 +3,8 @@
  */
 package com.googlecode.menugen.domain;
 
+import javax.persistence.Entity;
 import javax.persistence.Id;
-
-import org.hibernate.annotations.Entity;
 
 /**
  * Unit of measure

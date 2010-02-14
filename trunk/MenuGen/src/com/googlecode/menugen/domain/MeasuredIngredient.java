@@ -4,10 +4,10 @@
 package com.googlecode.menugen.domain;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
-import org.hibernate.annotations.Entity;
 
 /**
  * A single measured ingredient within a recipe.
