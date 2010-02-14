@@ -2,6 +2,7 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="resources"/>
+	<classpathentry kind="src" path="test"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.6"/>
 	<classpathentry kind="lib" path="lib/commons/commons-collections-3.2.1.jar" sourcepath="etc/source/commons/commons-collections-3.2.1-sources.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-lang-2.4.jar" sourcepath="etc/source/commons/commons-lang-2.4-sources.jar"/>
@@ -27,7 +28,6 @@
 	<classpathentry kind="lib" path="lib/spring/org.springframework.jms-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.orm-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.oxm-3.0.0.RELEASE.jar"/>
-	<classpathentry kind="lib" path="lib/spring/org.springframework.test-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.transaction-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.web-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/spring/org.springframework.web.portlet-3.0.0.RELEASE.jar"/>
@@ -39,5 +39,15 @@
 	<classpathentry kind="lib" path="lib/beanlib/beanlib-hibernate-5.0.2beta.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-beanutils-1.8.2.jar" sourcepath="etc/source/commons/commons-beanutils-1.8.2-sources.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate/ejb3-persistence.jar"/>
+	<classpathentry kind="lib" path="lib/test/junit/junit-4.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/test/spring/org.springframework.test-3.0.0.RELEASE.jar" sourcepath="etc/source/spring/org.springframework.test-sources-3.0.0.RELEASE.jar"/>
+	<classpathentry kind="lib" path="lib/commons/commons-logging-1.1.1.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j/slf4j-api-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j/slf4j-log4j12-1.5.8.jar"/>
+	<classpathentry kind="lib" path="lib/aopalliance/aopalliance-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/aspectj/aspectjrt-1.6.8.jar"/>
+	<classpathentry kind="lib" path="lib/aspectj/aspectjtools-1.6.8.jar"/>
+	<classpathentry kind="lib" path="lib/aspectj/aspectjweaver-1.6.8.jar"/>
+	<classpathentry kind="lib" path="lib/aspectj/org.aspectj.matcher-1.6.8.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
