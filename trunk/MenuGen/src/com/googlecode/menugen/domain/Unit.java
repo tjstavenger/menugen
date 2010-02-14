@@ -4,6 +4,7 @@
 package com.googlecode.menugen.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 /**
@@ -14,6 +15,7 @@ public class Unit extends DomainObject {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue
 	private Long id;
 	private String abbreviation;
 	private String name;
