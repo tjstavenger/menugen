@@ -20,6 +20,8 @@ public class UnitServiceTest extends MenuGenTestCase {
 	public void testRetrieve() {
 		List<Unit> units = unitService.retrieve();
 
+		System.out.println(units);
+		
 		assertFalse("Should have units", units.isEmpty());
 	}
 }
