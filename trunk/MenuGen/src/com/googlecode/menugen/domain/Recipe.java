@@ -20,6 +20,8 @@ import org.hibernate.annotations.CollectionOfElements;
  */
 @Entity
 public class Recipe extends DomainObject {
+	public static final String NAME = "name";
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
