@@ -14,8 +14,7 @@ import javax.persistence.Id;
 @Entity
 public class Unit extends DomainObject {
 	public static final String ABBREVIATION = "abbreviation";
-	public static final String NAME = "name";
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -23,8 +22,6 @@ public class Unit extends DomainObject {
 	private Long id;
 	@Column(length = 20)
 	private String abbreviation;
-	@Column(length = 2000)
-	private String name;
 
 	/**
 	 * @return the id
@@ -57,17 +54,12 @@ public class Unit extends DomainObject {
 	}
 
 	/**
-	 * @return the name
+	 * Return just the abbreviation for display in combobox.
+	 * 
+	 * @see com.googlecode.menugen.domain.DomainObject#toString()
 	 */
-	public String getName() {
-		return name;
-	}
-
-	/**
-	 * @param name
-	 *            the name to set
-	 */
-	public void setName(String name) {
-		this.name = name;
+	@Override
+	public String toString() {
+		return getAbbreviation();
 	}
 }
