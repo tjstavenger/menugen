@@ -3,11 +3,16 @@
  */
 package com.googlecode.menugen.ui.recipe;
 
+import java.awt.Dimension;
+import java.awt.Font;
 import java.util.List;
 
 import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
 import javax.swing.JComboBox;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
@@ -26,9 +31,11 @@ import com.jgoodies.forms.layout.FormLayout;
 public class RecipePanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	
-	private IngredientService ingredientService = SpringContextUtility.getBean(IngredientService.class);
-	private UnitService unitService = SpringContextUtility.getBean(UnitService.class);
+
+	private IngredientService ingredientService = SpringContextUtility
+			.getBean(IngredientService.class);
+	private UnitService unitService = SpringContextUtility
+			.getBean(UnitService.class);
 
 	/**
 	 * This is the default constructor
@@ -44,6 +51,8 @@ public class RecipePanel extends JPanel {
 	 * @return void
 	 */
 	private void initialize() {
+		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		
 		DefaultFormBuilder name = new DefaultFormBuilder(new FormLayout());
 		name.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		name.appendColumn("right:pref");
@@ -58,11 +67,11 @@ public class RecipePanel extends JPanel {
 		servesTime.appendColumn("right:pref");
 		servesTime.appendColumn("3dlu");
 		servesTime.appendColumn("fill:max(pref; 75px)");
-		servesTime.appendColumn("5dlu");
+		servesTime.appendColumn("7dlu");
 		servesTime.appendColumn("right:pref");
 		servesTime.appendColumn("3dlu");
 		servesTime.appendColumn("fill:max(pref; 75px)");
-		servesTime.appendColumn("5dlu");
+		servesTime.appendColumn("7dlu");
 		servesTime.appendColumn("right:pref");
 		servesTime.appendColumn("3dlu");
 		servesTime.appendColumn("fill:max(pref; 75px)");
@@ -83,10 +92,10 @@ public class RecipePanel extends JPanel {
 				new FormLayout());
 		ingredientsForm.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		ingredientsForm.appendColumn("fill:max(pref; 50px)");
-		ingredientsForm.appendColumn("5dlu");
+		ingredientsForm.appendColumn("7dlu");
 		ingredientsForm.appendColumn("fill:max(pref; 100px)");
-		ingredientsForm.appendColumn("5dlu");
-		ingredientsForm.appendColumn("fill:max(pref; 150px)");
+		ingredientsForm.appendColumn("7dlu");
+		ingredientsForm.appendColumn("fill:max(pref; 230px)");
 
 		ingredientsForm.appendSeparator("Ingredients");
 
@@ -103,16 +112,37 @@ public class RecipePanel extends JPanel {
 
 		add(ingredientsForm.getPanel());
 
+		DefaultFormBuilder instructions = new DefaultFormBuilder(new FormLayout());
+		instructions.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
+		instructions.appendColumn("right:pref");
+		instructions.appendColumn("3dlu");
+		instructions.appendColumn("fill:max(pref; 400px)");
+
+		instructions.appendSeparator("Instructions");
+		JTextArea step =  new JTextArea();
+		step.setLineWrap(true);
+		step.setWrapStyleWord(true);
+        JScrollPane stepScrollPane = new JScrollPane(step);
+        stepScrollPane.setVerticalScrollBarPolicy(
+                        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        stepScrollPane.setPreferredSize(new Dimension(400, 50));
+		instructions.append("1.", stepScrollPane);
+
+		add(instructions.getPanel());
+		
 		DefaultFormBuilder notes = new DefaultFormBuilder(new FormLayout());
 		notes.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
-		notes.appendColumn("right:pref");
-		notes.appendColumn("3dlu");
-		notes.appendColumn("fill:max(pref; 400px)");
+		notes.appendColumn("fill:max(pref; 440px)");
 
 		notes.appendSeparator("Notes");
-
-		notes.append("-", new JTextPane());
-		notes.nextLine();
+		JTextArea notesText =  new JTextArea();
+		notesText.setLineWrap(true);
+		notesText.setWrapStyleWord(true);
+        JScrollPane notesScrollPane = new JScrollPane(notesText);
+        notesScrollPane.setVerticalScrollBarPolicy(
+                        JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        notesScrollPane.setPreferredSize(new Dimension(440, 100));
+		notes.append(notesScrollPane);
 
 		add(notes.getPanel());
 
