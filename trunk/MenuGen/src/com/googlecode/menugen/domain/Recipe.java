@@ -38,9 +38,8 @@ public class Recipe extends DomainObject {
 	@CollectionOfElements
 	@Column(length = 2000)
 	private List<String> instructions = new ArrayList<String>(0);
-	@CollectionOfElements
 	@Column(length = 2000)
-	private List<String> notes = new ArrayList<String>(0);
+	private String notes;
 
 	/**
 	 * @return the id
@@ -135,7 +134,7 @@ public class Recipe extends DomainObject {
 	/**
 	 * @return the notes
 	 */
-	public List<String> getNotes() {
+	public String getNotes() {
 		return notes;
 	}
 
@@ -143,7 +142,7 @@ public class Recipe extends DomainObject {
 	 * @param notes
 	 *            the notes to set
 	 */
-	public void setNotes(List<String> notes) {
+	public void setNotes(String notes) {
 		this.notes = notes;
 	}
 
@@ -161,5 +160,4 @@ public class Recipe extends DomainObject {
 	public void setName(String name) {
 		this.name = name;
 	}
-
 }

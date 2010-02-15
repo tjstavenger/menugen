@@ -8,14 +8,13 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
-
 /**
  * Ingredient used within a recipe
  */
 @Entity
 public class Ingredient extends DomainObject {
 	public static final String NAME = "name";
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -52,5 +51,15 @@ public class Ingredient extends DomainObject {
 	 */
 	public void setName(String name) {
 		this.name = name;
+	}
+
+	/**
+	 * Return just the name for display in combobox.
+	 * 
+	 * @see com.googlecode.menugen.domain.DomainObject#toString()
+	 */
+	@Override
+	public String toString() {
+		return getName();
 	}
 }

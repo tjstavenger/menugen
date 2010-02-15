@@ -58,8 +58,9 @@ public class MenuGen {
 			jFrame = new JFrame();
 			jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			jFrame.setJMenuBar(getJMenuBar());
-			jFrame.setSize(300, 200);
-			jFrame.setContentPane(getSearchPanel());
+			jFrame.setSize(500, 500);
+//			jFrame.setContentPane(getSearchPanel());
+			jFrame.setContentPane(getRecipePanel());
 			jFrame.setTitle("Menu Generator");
 		}
 		return jFrame;

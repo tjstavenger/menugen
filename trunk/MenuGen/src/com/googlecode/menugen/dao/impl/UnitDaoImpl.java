@@ -10,7 +10,6 @@ import org.hibernate.criterion.Order;
 import org.springframework.stereotype.Repository;
 
 import com.googlecode.menugen.dao.UnitDao;
-import com.googlecode.menugen.domain.Ingredient;
 import com.googlecode.menugen.domain.Unit;
 
 /**
@@ -30,7 +29,7 @@ public class UnitDaoImpl extends DataAccessObjectImpl<Unit, Long> implements
 	@Override
 	public List<Unit> findAll() {
 		Criteria criteria = createCriteria();
-		criteria.addOrder(Order.asc(Ingredient.NAME));
+		criteria.addOrder(Order.asc(Unit.ABBREVIATION));
 		List<Unit> units = criteria.list();
 
 		return units;

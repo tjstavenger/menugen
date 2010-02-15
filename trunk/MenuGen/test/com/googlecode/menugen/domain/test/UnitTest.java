@@ -25,12 +25,12 @@ public class UnitTest extends MenuGenTestCase {
 	 */
 	@Test
 	public void createData() {
-		addUnit("cup", "cup");
-		addUnit("cups", "cups");
-		addUnit("dash", "dash");
-		addUnit("pinch", "pinch");
-		addUnit("tsp", "teaspoons");
-		addUnit("tbs", "tablespoons");
+		addUnit("cup");
+		addUnit("cups");
+		addUnit("dash");
+		addUnit("pinch");
+		addUnit("tsp");
+		addUnit("tbs");
 	}
 
 	/**
@@ -38,14 +38,11 @@ public class UnitTest extends MenuGenTestCase {
 	 * 
 	 * @param abbreviation
 	 *            String abbreviation
-	 * @param name
-	 *            String full name
 	 */
-	private void addUnit(String abbreviation, String name) {
+	private void addUnit(String abbreviation) {
 		Unit unit = new Unit();
 		unit.setAbbreviation(abbreviation);
 		unit.setId(null);
-		unit.setName(name);
 		unitService.create(unit);
 	}
 }
