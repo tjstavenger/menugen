@@ -3,22 +3,24 @@
  */
 package com.googlecode.menugen.ui;
 
-import java.awt.event.KeyEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
-import java.awt.Event;
 import java.awt.BorderLayout;
+import java.awt.Event;
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import javax.swing.KeyStroke;
-import java.awt.Point;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JMenuItem;
-import javax.swing.JMenuBar;
-import javax.swing.JMenu;
-import javax.swing.JFrame;
-import javax.swing.JDialog;
+import javax.swing.UIManager;
 
 import com.googlecode.menugen.ui.recipe.RecipePanel;
 import com.googlecode.menugen.ui.search.SearchPanel;
@@ -44,9 +46,19 @@ public class MenuGen {
 	private JDialog aboutDialog = null;
 	private JPanel aboutContentPane = null;
 	private JLabel aboutVersionLabel = null;
-	
+
 	private SearchPanel searchPanel = null;
 	private RecipePanel recipePanel = null;
+
+	public MenuGen() {
+		super();
+		try {
+			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+		} catch (Exception e) {
+			System.out.println("Error setting native LAF: " + e);
+		}
+
+	}
 
 	/**
 	 * This method initializes jFrame
@@ -59,7 +71,7 @@ public class MenuGen {
 			jFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 			jFrame.setJMenuBar(getJMenuBar());
 			jFrame.setSize(500, 500);
-//			jFrame.setContentPane(getSearchPanel());
+			// jFrame.setContentPane(getSearchPanel());
 			jFrame.setContentPane(getRecipePanel());
 			jFrame.setTitle("Menu Generator");
 		}
