@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 
 import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +15,10 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.googlecode.menugen.dao.RecipeDao;
+import com.googlecode.menugen.domain.Ingredient;
+import com.googlecode.menugen.domain.MeasuredIngredient;
 import com.googlecode.menugen.domain.Recipe;
+import com.googlecode.menugen.domain.Unit;
 import com.googlecode.menugen.service.RecipeService;
 
 /**
@@ -81,6 +85,73 @@ public class RecipeServiceImpl implements RecipeService {
 		}
 
 		return menu;
+	}
+
+	/**
+	 * Create a shopping list for the given menu.
+	 * 
+	 * @param menu
+	 *            List of {@link Recipe}
+	 * @return shopping list
+	 */
+	@Override
+	public List<String> createShoppingList(List<Recipe> menu) {
+
+		// TODO add conversions and return List of MeasuredIngredient, order the
+		// list
+
+		Map<Ingredient, List<MeasuredIngredient>> ingredients = new HashMap<Ingredient, List<MeasuredIngredient>>();
+
+		for (Recipe recipe : menu) {
+			for (MeasuredIngredient measuredIngredient : recipe
+					.getIngredients()) {
+
+				if (!ingredients
+						.containsKey(measuredIngredient.getIngredient())) {
+					ingredients.put(measuredIngredient.getIngredient(),
+							new ArrayList<MeasuredIngredient>());
+				}
+
+				ingredients.get(measuredIngredient.getIngredient()).add(measuredIngredient);
+			}
+		}
+
+		List<String> shoppingList = new ArrayList<String>(ingredients.size());
+
+		for (Entry<Ingredient, List<MeasuredIngredient>> entry : ingredients
+				.entrySet()) {
+
+			Map<Unit, Double> units = new HashMap<Unit, Double>();
+
+			for (MeasuredIngredient measuredIngredient : entry.getValue()) {
+				if (!units.containsKey(measuredIngredient.getUnit())) {
+					units.put(measuredIngredient.getUnit(), Double.valueOf(0));
+				}
+
+				Double value = units.get(measuredIngredient.getUnit())
+						+ measuredIngredient.getAmount();
+				units.put(measuredIngredient.getUnit(), value);
+			}
+
+			StringBuilder stringBuilder = new StringBuilder();
+
+			for (Entry<Unit, Double> amountEntry : units.entrySet()) {
+				if (stringBuilder.length() > 0) {
+					stringBuilder.append(" + ");
+				}
+
+				stringBuilder.append(amountEntry.getValue());
+				stringBuilder.append(" ");
+				stringBuilder.append(amountEntry.getKey().getAbbreviation());
+			}
+
+			stringBuilder.append(" ");
+			stringBuilder.append(entry.getKey().getName());
+
+			shoppingList.add(stringBuilder.toString());
+		}
+
+		return shoppingList;
 	}
 
 	/**
