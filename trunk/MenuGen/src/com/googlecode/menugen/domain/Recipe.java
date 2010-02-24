@@ -21,6 +21,9 @@ import org.hibernate.annotations.CollectionOfElements;
 @Entity
 public class Recipe extends DomainObject {
 	public static final String NAME = "name";
+	public static final String INSTRUCTIONS = "instructions";
+	public static final String MEASURED_INGREDIENT_NAME = "ingredients.ingredient.name";
+	public static final String NOTES = "notes";
 
 	private static final long serialVersionUID = 1L;
 
