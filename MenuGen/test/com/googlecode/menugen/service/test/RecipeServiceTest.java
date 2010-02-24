@@ -3,8 +3,10 @@
  */
 package com.googlecode.menugen.service.test;
 
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.junit.Test;
@@ -29,5 +31,23 @@ public class RecipeServiceTest extends MenuGenTestCase {
 		System.out.println(recipes);
 
 		assertFalse("Should return results", recipes.isEmpty());
+	}
+	
+	@Test
+	public void testCreateMenu() {
+		List<Integer> servings = new ArrayList<Integer>(7);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		
+		List<Recipe> menu = recipeService.createMenu(servings);
+		
+		System.out.println(menu);
+		
+		assertEquals("Should have 7 meals", 7, menu.size());
 	}
 }

@@ -41,6 +41,7 @@ public class RecipeTest extends MenuGenTestCase {
 		Recipe recipe = new Recipe();
 		recipe.setId(null);
 		recipe.setName(name);
+		recipe.setServes(2);
 		recipeService.create(recipe);
 	}
 }
