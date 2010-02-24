@@ -21,6 +21,22 @@ public class RecipeDaoImpl extends DataAccessObjectImpl<Recipe, Long> implements
 		RecipeDao {
 
 	/**
+	 * Find all recipes that serve at least the given number.
+	 * 
+	 * @param serves
+	 *            number of servings
+	 * @return List of {@link Recipe} that can serve the given number
+	 */
+	@Override
+	public List<Recipe> findByServes(Integer serves) {
+		Criteria criteria = createCriteria();
+		criteria.add(Restrictions.ge(Recipe.SERVES, serves));
+		List<Recipe> recipes = criteria.list();
+
+		return recipes;
+	}
+
+	/**
 	 * Search for recipes matching the given criteria.
 	 * 
 	 * @param criteria

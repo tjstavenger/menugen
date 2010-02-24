@@ -24,6 +24,7 @@ public class Recipe extends DomainObject {
 	public static final String INSTRUCTIONS = "instructions";
 	public static final String MEASURED_INGREDIENT_NAME = "ingredients.ingredient.name";
 	public static final String NOTES = "notes";
+	public static final String SERVES = "serves";
 
 	private static final long serialVersionUID = 1L;
 

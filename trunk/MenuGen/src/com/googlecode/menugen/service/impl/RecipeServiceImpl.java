@@ -3,8 +3,12 @@
  */
 package com.googlecode.menugen.service.impl;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.lang.math.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -50,7 +54,25 @@ public class RecipeServiceImpl implements RecipeService {
 	 */
 	@Override
 	public List<Recipe> createMenu(List<Integer> servings) {
-		return null;
+		Map<Integer, List<Recipe>> recipeServes = new HashMap<Integer, List<Recipe>>();
+
+		for (Integer serves : servings) {
+			if (!recipeServes.containsKey(serves)) {
+				List<Recipe> recipes = recipeDao.findByServes(serves);
+				recipeServes.put(serves, recipes);
+			}
+		}
+
+		List<Recipe> menu = new ArrayList<Recipe>(servings.size());
+
+		for (Integer serves : servings) {
+			List<Recipe> recipes = recipeServes.get(serves);
+
+			int random = RandomUtils.nextInt(recipes.size());
+			menu.add(recipes.get(random));
+		}
+
+		return menu;
 	}
 
 	/**
