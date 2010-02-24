@@ -32,6 +32,15 @@ public interface RecipeService {
 	List<Recipe> createMenu(List<Integer> servings);
 
 	/**
+	 * Create a shopping list for the given menu.
+	 * 
+	 * @param menu
+	 *            List of {@link Recipe}
+	 * @return shopping list
+	 */
+	List<String> createShoppingList(List<Recipe> menu);
+
+	/**
 	 * Delete an existing {@link Recipe}
 	 * 
 	 * @param recipe

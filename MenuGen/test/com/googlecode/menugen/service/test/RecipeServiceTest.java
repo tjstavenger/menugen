@@ -32,7 +32,7 @@ public class RecipeServiceTest extends MenuGenTestCase {
 
 		assertFalse("Should return results", recipes.isEmpty());
 	}
-	
+
 	@Test
 	public void testCreateMenu() {
 		List<Integer> servings = new ArrayList<Integer>(7);
@@ -43,11 +43,30 @@ public class RecipeServiceTest extends MenuGenTestCase {
 		servings.add(2);
 		servings.add(2);
 		servings.add(2);
-		
+
 		List<Recipe> menu = recipeService.createMenu(servings);
-		
+
 		System.out.println(menu);
-		
+
 		assertEquals("Should have 7 meals", 7, menu.size());
+	}
+
+	@Test
+	public void testCreateShoppingList() {
+		List<Integer> servings = new ArrayList<Integer>(7);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+		servings.add(2);
+
+		List<Recipe> menu = recipeService.createMenu(servings);
+		List<String> shoppingList = recipeService.createShoppingList(menu);
+
+		System.out.println(shoppingList);
+
+		assertFalse("Should not be empty", shoppingList.isEmpty());
 	}
 }
