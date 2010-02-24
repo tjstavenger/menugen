@@ -68,8 +68,16 @@ public class RecipeServiceImpl implements RecipeService {
 		for (Integer serves : servings) {
 			List<Recipe> recipes = recipeServes.get(serves);
 
-			int random = RandomUtils.nextInt(recipes.size());
-			menu.add(recipes.get(random));
+			Recipe recipe;
+
+			do {
+				int random = RandomUtils.nextInt(recipes.size());
+				recipe = recipes.get(random);
+			} while (!menu.contains(recipe) && servings.size() < recipes.size());
+
+			menu.add(recipe);
+
+			// TODO handle leftovers
 		}
 
 		return menu;
