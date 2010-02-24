@@ -39,6 +39,21 @@ public class RecipeServiceImpl implements RecipeService {
 	}
 
 	/**
+	 * Create a menu (List) of {@link Recipe} of the same size as the List
+	 * provided, with each day able to serve the given number of people.
+	 * 
+	 * @param servings
+	 *            List of serving sizes for each {@link Recipe} in the menu
+	 * @return List of {@link Recipe}
+	 * 
+	 * @see com.googlecode.menugen.service.RecipeService#createMenu(java.util.List)
+	 */
+	@Override
+	public List<Recipe> createMenu(List<Integer> servings) {
+		return null;
+	}
+
+	/**
 	 * Delete an existing {@link Recipe}
 	 * 
 	 * @param recipe
@@ -80,7 +95,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Recipe> search(String criteria) {
-		return recipeDao.findAll();
+		return recipeDao.search(criteria);
 	}
 
 	/**

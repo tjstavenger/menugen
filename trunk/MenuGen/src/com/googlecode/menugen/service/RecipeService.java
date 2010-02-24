@@ -22,6 +22,16 @@ public interface RecipeService {
 	Recipe create(Recipe recipe);
 
 	/**
+	 * Create a menu (List) of {@link Recipe} of the same size as the List
+	 * provided, with each day able to serve the given number of people.
+	 * 
+	 * @param servings
+	 *            List of serving sizes for each {@link Recipe} in the menu
+	 * @return List of {@link Recipe}
+	 */
+	List<Recipe> createMenu(List<Integer> servings);
+
+	/**
 	 * Delete an existing {@link Recipe}
 	 * 
 	 * @param recipe

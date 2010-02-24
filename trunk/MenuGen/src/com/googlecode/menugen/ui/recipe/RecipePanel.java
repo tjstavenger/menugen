@@ -4,7 +4,6 @@
 package com.googlecode.menugen.ui.recipe;
 
 import java.awt.Dimension;
-import java.awt.Font;
 import java.util.List;
 
 import javax.swing.BorderFactory;
@@ -14,7 +13,6 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
-import javax.swing.JTextPane;
 
 import com.googlecode.menugen.domain.Ingredient;
 import com.googlecode.menugen.domain.Unit;
