@@ -5,6 +5,9 @@ package com.googlecode.menugen.dao.impl;
 
 import java.util.List;
 
+import org.hibernate.Criteria;
+import org.hibernate.criterion.Disjunction;
+import org.hibernate.criterion.Restrictions;
 import org.springframework.stereotype.Repository;
 
 import com.googlecode.menugen.dao.RecipeDao;
@@ -26,6 +29,20 @@ public class RecipeDaoImpl extends DataAccessObjectImpl<Recipe, Long> implements
 	 */
 	@Override
 	public List<Recipe> search(String criteria) {
-		return findAll();
+		Disjunction or = Restrictions.disjunction();
+		or.add(Restrictions.ilike(Recipe.NAME, criteria));
+
+		// TODO not sure how to search on this table?
+		// or.add(Restrictions.ilike(Recipe.INSTRUCTIONS, criteria));
+
+		// TODO requires subquery
+		// or.add(Restrictions.ilike(Recipe.MEASURED_INGREDIENT_NAME,
+		// criteria));
+
+		Criteria crit = createCriteria();
+		crit.add(or);
+		List<Recipe> recipes = crit.list();
+
+		return recipes;
 	}
 }
