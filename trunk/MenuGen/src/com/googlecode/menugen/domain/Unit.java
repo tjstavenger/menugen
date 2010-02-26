@@ -52,14 +52,4 @@ public class Unit extends DomainObject {
 	public void setAbbreviation(String abbreviation) {
 		this.abbreviation = abbreviation;
 	}
-
-	/**
-	 * Return just the abbreviation for display in combobox.
-	 * 
-	 * @see com.googlecode.menugen.domain.DomainObject#toString()
-	 */
-	@Override
-	public String toString() {
-		return getAbbreviation();
-	}
 }

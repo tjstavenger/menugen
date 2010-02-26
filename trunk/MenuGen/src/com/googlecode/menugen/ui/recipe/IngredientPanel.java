@@ -25,32 +25,37 @@ import com.googlecode.menugen.utility.SpringContextUtility;
 public class IngredientPanel extends javax.swing.JPanel {
 
 	private MeasuredIngredient measuredIngredient;
-	private IngredientService ingredientService = SpringContextUtility.getBean(IngredientService.class);
-	private UnitService unitService = SpringContextUtility.getBean(UnitService.class);
+	private IngredientService ingredientService = SpringContextUtility
+			.getBean(IngredientService.class);
+	private UnitService unitService = SpringContextUtility
+			.getBean(UnitService.class);
 
 	/** Creates new form IngredientPanel */
 	public IngredientPanel(MeasuredIngredient measuredIngredient) {
 		initComponents();
-		
-		unitComboBox.setModel(new ListComboBoxModel(unitService.retrieve()));
-		ingredientComboBox.setModel(new ListComboBoxModel(ingredientService.retrieve()));
+
+		unitComboBox.setModel(new UnitComboBoxModel(unitService.retrieve()));
+		ingredientComboBox.setModel(new IngredientComboBoxModel(
+				ingredientService.retrieve()));
 
 		if (measuredIngredient == null) {
 			this.measuredIngredient = new MeasuredIngredient();
 		} else {
 			this.measuredIngredient = measuredIngredient;
 		}
-		
+
 		amountText.setText(String.valueOf(this.measuredIngredient.getAmount()));
 		unitComboBox.setSelectedItem(this.measuredIngredient.getUnit());
-		ingredientComboBox.setSelectedItem(this.measuredIngredient.getIngredient());
+		ingredientComboBox.setSelectedItem(this.measuredIngredient
+				.getIngredient());
 	}
-	
+
 	public MeasuredIngredient getMeasuredIngredient() {
 		measuredIngredient.setAmount(Double.parseDouble(amountText.getText()));
 		measuredIngredient.setUnit((Unit) unitComboBox.getSelectedItem());
-		measuredIngredient.setIngredient((Ingredient) ingredientComboBox.getSelectedItem());
-		
+		measuredIngredient.setIngredient((Ingredient) ingredientComboBox
+				.getSelectedItem());
+
 		return measuredIngredient;
 	}
 
@@ -61,39 +66,63 @@ public class IngredientPanel extends javax.swing.JPanel {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+	// <editor-fold defaultstate="collapsed"
+	// desc="Generated Code">//GEN-BEGIN:initComponents
+	private void initComponents() {
 
-        amountText = new javax.swing.JTextField();
-        unitComboBox = new javax.swing.JComboBox();
-        ingredientComboBox = new javax.swing.JComboBox();
+		amountText = new javax.swing.JTextField();
+		unitComboBox = new javax.swing.JComboBox();
+		ingredientComboBox = new javax.swing.JComboBox();
 
-        unitComboBox.setEditable(true);
+		unitComboBox.setEditable(true);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(amountText, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(unitComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ingredientComboBox, 0, 225, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                .addComponent(amountText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(unitComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(ingredientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-        );
-    }// </editor-fold>//GEN-END:initComponents
+		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+		this.setLayout(layout);
+		layout
+				.setHorizontalGroup(layout
+						.createParallelGroup(
+								javax.swing.GroupLayout.Alignment.LEADING)
+						.addGroup(
+								layout
+										.createSequentialGroup()
+										.addComponent(
+												amountText,
+												javax.swing.GroupLayout.PREFERRED_SIZE,
+												35,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(
+												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(
+												unitComboBox,
+												javax.swing.GroupLayout.PREFERRED_SIZE,
+												93,
+												javax.swing.GroupLayout.PREFERRED_SIZE)
+										.addPreferredGap(
+												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+										.addComponent(ingredientComboBox, 0,
+												225, Short.MAX_VALUE)));
+		layout.setVerticalGroup(layout.createParallelGroup(
+				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
+				layout.createParallelGroup(
+						javax.swing.GroupLayout.Alignment.BASELINE)
+						.addComponent(amountText,
+								javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(unitComboBox,
+								javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingredientComboBox,
+								javax.swing.GroupLayout.PREFERRED_SIZE,
+								javax.swing.GroupLayout.DEFAULT_SIZE,
+								javax.swing.GroupLayout.PREFERRED_SIZE)));
+	}// </editor-fold>//GEN-END:initComponents
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JTextField amountText;
-    private javax.swing.JComboBox ingredientComboBox;
-    private javax.swing.JComboBox unitComboBox;
-    // End of variables declaration//GEN-END:variables
+	// Variables declaration - do not modify//GEN-BEGIN:variables
+	private javax.swing.JTextField amountText;
+	private javax.swing.JComboBox ingredientComboBox;
+	private javax.swing.JComboBox unitComboBox;
+	// End of variables declaration//GEN-END:variables
 
 }
