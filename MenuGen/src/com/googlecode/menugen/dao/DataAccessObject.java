@@ -7,6 +7,8 @@ import java.io.Serializable;
 import java.util.Collection;
 import java.util.List;
 
+import org.hibernate.Session;
+
 import com.googlecode.menugen.domain.DomainObject;
 
 /**
@@ -29,7 +31,6 @@ public interface DataAccessObject<T extends DomainObject, ID extends Serializabl
 	 * @return persistent class
 	 */
 	T findById(ID id);
-
 
 	/**
 	 * Save or update the given persistent class.
@@ -56,7 +57,8 @@ public interface DataAccessObject<T extends DomainObject, ID extends Serializabl
 	/**
 	 * Evitct the given persistant class from the Hibernate session.
 	 * 
-	 * @param persistentClass instance
+	 * @param persistentClass
+	 *            instance
 	 */
 	void evict(T persistentClass);
 

@@ -14,6 +14,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.CollectionOfElements;
+import org.hibernate.annotations.IndexColumn;
 
 /**
  * A list of measured ingredients and instructions to make the recipe.
@@ -37,9 +38,11 @@ public class Recipe extends DomainObject {
 	private Double prepartionTime;
 	private Double cookingTime;
 	@OneToMany(cascade = { CascadeType.ALL })
+	@IndexColumn(name = "ingredientsIndex")
 	private List<MeasuredIngredient> ingredients = new ArrayList<MeasuredIngredient>(
 			0);
 	@CollectionOfElements
+	@IndexColumn(name = "instructionsIndex")
 	@Column(length = 2000)
 	private List<String> instructions = new ArrayList<String>(0);
 	@Column(length = 2000)

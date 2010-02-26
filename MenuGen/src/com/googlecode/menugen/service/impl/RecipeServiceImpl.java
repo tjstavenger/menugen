@@ -43,7 +43,9 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional
 	public Recipe create(Recipe recipe) {
-		return recipeDao.saveOrUpdate(recipe);
+		Recipe persisted = recipeDao.saveOrUpdate(recipe);
+
+		return persisted.copy();
 	}
 
 	/**
@@ -57,6 +59,7 @@ public class RecipeServiceImpl implements RecipeService {
 	 * @see com.googlecode.menugen.service.RecipeService#createMenu(java.util.List)
 	 */
 	@Override
+	@Transactional
 	public List<Recipe> createMenu(List<Integer> servings) {
 		Map<Integer, List<Recipe>> recipeServes = new HashMap<Integer, List<Recipe>>();
 
@@ -79,7 +82,8 @@ public class RecipeServiceImpl implements RecipeService {
 				recipe = recipes.get(random);
 			} while (!menu.contains(recipe) && servings.size() < recipes.size());
 
-			menu.add(recipe);
+			Recipe copy = recipe.copy();
+			menu.add(copy);
 
 			// TODO handle leftovers
 		}
@@ -95,6 +99,7 @@ public class RecipeServiceImpl implements RecipeService {
 	 * @return shopping list
 	 */
 	@Override
+	@Transactional(readOnly = true)
 	public List<String> createShoppingList(List<Recipe> menu) {
 
 		// TODO add conversions and return List of MeasuredIngredient, order the
@@ -182,7 +187,9 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional(readOnly = true)
 	public Recipe retrieve(Long id) {
-		return recipeDao.findById(id);
+		Recipe recipe = recipeDao.findById(id);
+
+		return recipe.copy();
 	}
 
 	/**
@@ -204,7 +211,7 @@ public class RecipeServiceImpl implements RecipeService {
 			persisted = update(recipe);
 		}
 
-		return persisted;
+		return persisted.copy();
 	}
 
 	/**
@@ -219,7 +226,15 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional(readOnly = true)
 	public List<Recipe> search(String criteria) {
-		return recipeDao.search(criteria);
+		List<Recipe> recipes = recipeDao.search(criteria);
+		List<Recipe> copies = new ArrayList<Recipe>(recipes.size());
+
+		for (Recipe recipe : recipes) {
+			Recipe copy = recipe.copy();
+			copies.add(copy);
+		}
+
+		return copies;
 	}
 
 	/**
@@ -235,6 +250,8 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional
 	public Recipe update(Recipe recipe) {
-		return recipeDao.saveOrUpdate(recipe);
+		Recipe persisted = recipeDao.saveOrUpdate(recipe);
+
+		return persisted.copy();
 	}
 }
