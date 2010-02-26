@@ -10,18 +10,19 @@
  */
 package com.googlecode.menugen.ui.recipe;
 
+import java.awt.Component;
 import java.awt.FlowLayout;
 
+import javax.swing.JScrollPane;
+import javax.swing.SwingUtilities;
+
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 
-import com.googlecode.menugen.domain.Ingredient;
 import com.googlecode.menugen.domain.MeasuredIngredient;
 import com.googlecode.menugen.domain.Recipe;
 import com.googlecode.menugen.service.RecipeService;
 import com.googlecode.menugen.utility.SpringContextUtility;
-import java.awt.Rectangle;
-import javax.swing.JScrollPane;
-import javax.swing.SwingUtilities;
 
 /**
  * 
@@ -62,6 +63,19 @@ public class RecipePanel extends javax.swing.JPanel {
 
 		if (recipe.getCookingTime() != null) {
 			cookTimeText.setText(String.valueOf(recipe.getCookingTime()));
+		}
+
+		if (recipe.getIngredients() != null) {
+			for (MeasuredIngredient measuredIngredient : recipe
+					.getIngredients()) {
+				addIngredient(measuredIngredient);
+			}
+		}
+
+		if (recipe.getInstructions() != null) {
+			for (String instruction : recipe.getInstructions()) {
+				addStep(instruction);
+			}
 		}
 
 		notesText.setText(recipe.getNotes());
@@ -475,7 +489,7 @@ public class RecipePanel extends javax.swing.JPanel {
 		addIngredient(null);
 		scrollToBottom(ingredientsScrollPane);
 	}// GEN-LAST:event_addIngredientButtonActionPerformed
-	
+
 	private void addIngredient(MeasuredIngredient measuredIngredient) {
 		ingredientsPanel.add(new IngredientPanel(measuredIngredient));
 		ingredientsPanel.revalidate();
@@ -512,6 +526,29 @@ public class RecipePanel extends javax.swing.JPanel {
 
 		if (NumberUtils.isNumber(cookTimeText.getText())) {
 			recipe.setCookingTime(Double.valueOf(cookTimeText.getText()));
+		}
+
+		if (ingredientsPanel.getComponentCount() > 0) {
+			for (Component component : ingredientsPanel.getComponents()) {
+				IngredientPanel ingredientPanel = (IngredientPanel) component;
+				MeasuredIngredient measuredIngredient = ingredientPanel
+						.getMeasuredIngredient();
+
+				if (measuredIngredient.getIngredient() != null) {
+					recipe.getIngredients().add(measuredIngredient);
+				}
+			}
+		}
+
+		if (instructionsPanel.getComponentCount() > 0) {
+			for (Component component : instructionsPanel.getComponents()) {
+				InstructionPanel instructionPanel = (InstructionPanel) component;
+				String instruction = instructionPanel.getInstruction();
+
+				if (StringUtils.isNotBlank(instruction)) {
+					recipe.getInstructions().add(instruction.trim());
+				}
+			}
 		}
 
 		recipe.setNotes(notesText.getText());
