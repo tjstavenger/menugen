@@ -82,13 +82,19 @@ public class RecipeServiceImpl implements RecipeService {
 				recipe = recipes.get(random);
 			} while (!menu.contains(recipe) && servings.size() < recipes.size());
 
-			Recipe copy = recipe.copy();
-			menu.add(copy);
+			menu.add(recipe);
 
 			// TODO handle leftovers
 		}
+		
+		List<Recipe> copies = new ArrayList<Recipe>(menu.size());
 
-		return menu;
+		for (Recipe recipe : menu) {
+			Recipe copy = recipe.copy();
+			copies.add(copy);
+		}
+
+		return copies;
 	}
 
 	/**
