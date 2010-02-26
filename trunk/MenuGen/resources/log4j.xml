@@ -26,6 +26,11 @@
 		<appender-ref ref="console" />
 	</logger>
 
+	<logger name="net.sf.beanlib" additivity="false">
+		<level value="error" />
+		<appender-ref ref="console" />
+	</logger>
+
 	<root>
 		<priority value="error" />
 		<appender-ref ref="console" />

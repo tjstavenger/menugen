@@ -33,8 +33,8 @@
 	<classpathentry kind="lib" path="lib/spring/org.springframework.web.struts-3.0.0.RELEASE.jar"/>
 	<classpathentry kind="lib" path="lib/xstream/xpp3_min-1.1.4c.jar"/>
 	<classpathentry kind="lib" path="lib/xstream/xstream-1.3.1.jar"/>
-	<classpathentry kind="lib" path="lib/beanlib/beanlib-5.0.2beta.jar"/>
-	<classpathentry kind="lib" path="lib/beanlib/beanlib-hibernate-5.0.2beta.jar"/>
+	<classpathentry kind="lib" path="lib/beanlib/beanlib-5.0.2beta.jar" sourcepath="etc/source/beanlib/beanlib-5.0.2beta-sources.jar"/>
+	<classpathentry kind="lib" path="lib/beanlib/beanlib-hibernate-5.0.2beta.jar" sourcepath="etc/source/beanlib/beanlib-hibernate-5.0.2beta-sources.jar"/>
 	<classpathentry kind="lib" path="lib/commons/commons-beanutils-1.8.2.jar" sourcepath="etc/source/commons/commons-beanutils-1.8.2-sources.jar"/>
 	<classpathentry kind="lib" path="lib/hibernate/ejb3-persistence.jar"/>
 	<classpathentry kind="lib" path="lib/test/junit/junit-4.8.1.jar"/>
