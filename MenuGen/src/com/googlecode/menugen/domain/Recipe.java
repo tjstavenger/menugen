@@ -9,6 +9,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
@@ -37,11 +38,11 @@ public class Recipe extends DomainObject {
 	private Integer serves;
 	private Double prepartionTime;
 	private Double cookingTime;
-	@OneToMany(cascade = { CascadeType.ALL })
+	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
 	@IndexColumn(name = "ingredientsIndex")
 	private List<MeasuredIngredient> ingredients = new ArrayList<MeasuredIngredient>(
 			0);
-	@CollectionOfElements
+	@CollectionOfElements(fetch = FetchType.EAGER)
 	@IndexColumn(name = "instructionsIndex")
 	@Column(length = 2000)
 	private List<String> instructions = new ArrayList<String>(0);
