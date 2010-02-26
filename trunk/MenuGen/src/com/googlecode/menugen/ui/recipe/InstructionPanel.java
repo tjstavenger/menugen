@@ -22,6 +22,15 @@ public class InstructionPanel extends javax.swing.JPanel {
         initComponents();
     }
 
+    /**
+     * Set the step number label.
+     *
+     * @param step int
+     */
+    public void setStep(int step) {
+        stepLabel.setText(step + ".");
+    }
+
     /** This method is called from within the constructor to
      * initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is
