@@ -11,7 +11,11 @@
 
 package com.googlecode.menugen.ui.recipe;
 
+import org.apache.commons.lang.math.NumberUtils;
+
 import com.googlecode.menugen.domain.Recipe;
+import com.googlecode.menugen.service.RecipeService;
+import com.googlecode.menugen.utility.SpringContextUtility;
 
 /**
  * 
@@ -61,6 +65,7 @@ public class RecipePanel extends javax.swing.JPanel {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
@@ -87,35 +92,18 @@ public class RecipePanel extends javax.swing.JPanel {
 		ingredientsPanel = new javax.swing.JPanel();
 		instructionsScrollPane = new javax.swing.JScrollPane();
 		instructionsPanel = new javax.swing.JPanel();
+		saveButton = new javax.swing.JButton();
 
 		setPreferredSize(new java.awt.Dimension(400, 545));
 		setRequestFocusEnabled(false);
 
 		nameLabel.setText("Name:");
 
-		nameText.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				nameTextActionPerformed(evt);
-			}
-		});
-
 		servesLabel.setText("Serves:");
-
-		servesText.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				servesTextActionPerformed(evt);
-			}
-		});
 
 		prepTimeLabel.setText("Prep Time:");
 
 		cookTimeLabel.setText("Cook Time:");
-
-		cookTimeText.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				cookTimeTextActionPerformed(evt);
-			}
-		});
 
 		ingredientsLabel.setFont(new java.awt.Font("Tahoma", 1, 11));
 		ingredientsLabel.setText("Ingredients");
@@ -162,6 +150,13 @@ public class RecipePanel extends javax.swing.JPanel {
 				.addGap(0, 100, Short.MAX_VALUE));
 
 		instructionsScrollPane.setViewportView(instructionsPanel);
+
+		saveButton.setText("Save");
+		saveButton.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				saveButtonActionPerformed(evt);
+			}
+		});
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
@@ -329,7 +324,11 @@ public class RecipePanel extends javax.swing.JPanel {
 																								javax.swing.GroupLayout.DEFAULT_SIZE,
 																								380,
 																								Short.MAX_VALUE))
-																		.addContainerGap()))));
+																		.addContainerGap())))
+						.addGroup(
+								layout.createSequentialGroup().addGap(169, 169,
+										169).addComponent(saveButton)
+										.addContainerGap(174, Short.MAX_VALUE)));
 		layout
 				.setVerticalGroup(layout
 						.createParallelGroup(
@@ -434,20 +433,39 @@ public class RecipePanel extends javax.swing.JPanel {
 												javax.swing.GroupLayout.PREFERRED_SIZE,
 												100,
 												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addContainerGap(18, Short.MAX_VALUE)));
+										.addPreferredGap(
+												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+										.addComponent(saveButton)
+										.addContainerGap(
+												javax.swing.GroupLayout.DEFAULT_SIZE,
+												Short.MAX_VALUE)));
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void nameTextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_nameTextActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_nameTextActionPerformed
+	private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_saveButtonActionPerformed
+		copyValues();
 
-	private void servesTextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_servesTextActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_servesTextActionPerformed
+		this.recipe = recipeService.save(recipe);
 
-	private void cookTimeTextActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_cookTimeTextActionPerformed
-		// TODO add your handling code here:
-	}// GEN-LAST:event_cookTimeTextActionPerformed
+		populateValues();
+	}// GEN-LAST:event_saveButtonActionPerformed
+
+	private void copyValues() {
+		recipe.setName(nameText.getText());
+
+		if (NumberUtils.isNumber(servesText.getText())) {
+			recipe.setServes(Integer.valueOf(servesText.getText()));
+		}
+
+		if (NumberUtils.isNumber(prepTimeText.getText())) {
+			recipe.setPrepartionTime(Double.valueOf(prepTimeText.getText()));
+		}
+
+		if (NumberUtils.isNumber(cookTimeText.getText())) {
+			recipe.setCookingTime(Double.valueOf(cookTimeText.getText()));
+		}
+
+		recipe.setNotes(notesText.getText());
+	}
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JLabel amountLabel;
@@ -470,9 +488,12 @@ public class RecipePanel extends javax.swing.JPanel {
 	private javax.swing.JTextArea notesText;
 	private javax.swing.JLabel prepTimeLabel;
 	private javax.swing.JTextField prepTimeText;
+	private javax.swing.JButton saveButton;
 	private javax.swing.JLabel servesLabel;
 	private javax.swing.JTextField servesText;
 	private javax.swing.JLabel unitLabel;
 	// End of variables declaration//GEN-END:variables
 
+	private RecipeService recipeService = SpringContextUtility
+			.getBean(RecipeService.class);
 }
