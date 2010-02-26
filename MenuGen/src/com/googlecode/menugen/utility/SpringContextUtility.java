@@ -29,6 +29,13 @@ public class SpringContextUtility {
 		return CONTEXT.getBean(clazz);
 	}
 
+        /**
+         * Initialize the Spring application context.
+         */
+        public static void init() {
+
+        }
+
 	/**
 	 * Cannot instantiate
 	 */

@@ -3,7 +3,6 @@
  */
 package com.googlecode.menugen.ui.search;
 
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -28,7 +27,7 @@ public class SearchResultsTableModel extends AbstractTableModel {
 	public SearchResultsTableModel() {
 		this.recipes = Collections.emptyList();
 	}
-	
+
 	/**
 	 * Set the List of {@link Recipe} to use as a {@link TableModel}.
 	 * 
@@ -88,5 +87,20 @@ public class SearchResultsTableModel extends AbstractTableModel {
 	@Override
 	public String getColumnName(int column) {
 		return COLUMN_NAME;
+	}
+
+	/**
+	 * @return the recipes
+	 */
+	public List<Recipe> getRecipes() {
+		return recipes;
+	}
+
+	/**
+	 * @param recipes
+	 *            the recipes to set
+	 */
+	public void setRecipes(List<Recipe> recipes) {
+		this.recipes = recipes;
 	}
 }
