@@ -59,7 +59,7 @@ public class RecipeServiceImpl implements RecipeService {
 	 * @see com.googlecode.menugen.service.RecipeService#createMenu(java.util.List)
 	 */
 	@Override
-	@Transactional
+	@Transactional(readOnly = true)
 	public List<Recipe> createMenu(List<Integer> servings) {
 		Map<Integer, List<Recipe>> recipeServes = new HashMap<Integer, List<Recipe>>();
 
