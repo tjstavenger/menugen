@@ -58,6 +58,16 @@ public interface RecipeService {
 	Recipe retrieve(Long id);
 
 	/**
+	 * {@link #create(Recipe)} if the ID is null, otherwise
+	 * {@link #update(Recipe)}.
+	 * 
+	 * @param recipe
+	 *            {@link Recipe} to create or update
+	 * @return {@link Recipe} persisted to database
+	 */
+	Recipe save(Recipe recipe);
+
+	/**
 	 * Search for recipes matching the given criteria.
 	 * 
 	 * @param criteria

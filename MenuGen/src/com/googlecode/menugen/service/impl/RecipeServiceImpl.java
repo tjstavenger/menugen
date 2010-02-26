@@ -112,7 +112,8 @@ public class RecipeServiceImpl implements RecipeService {
 							new ArrayList<MeasuredIngredient>());
 				}
 
-				ingredients.get(measuredIngredient.getIngredient()).add(measuredIngredient);
+				ingredients.get(measuredIngredient.getIngredient()).add(
+						measuredIngredient);
 			}
 		}
 
@@ -182,6 +183,28 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional(readOnly = true)
 	public Recipe retrieve(Long id) {
 		return recipeDao.findById(id);
+	}
+
+	/**
+	 * {@link #create(Recipe)} if the ID is null, otherwise
+	 * {@link #update(Recipe)}.
+	 * 
+	 * @param recipe
+	 *            {@link Recipe} to create or update
+	 * @return {@link Recipe} persisted to database
+	 */
+	@Override
+	@Transactional
+	public Recipe save(Recipe recipe) {
+		Recipe persisted;
+
+		if (recipe.getId() == null) {
+			persisted = create(recipe);
+		} else {
+			persisted = update(recipe);
+		}
+
+		return persisted;
 	}
 
 	/**
