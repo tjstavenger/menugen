@@ -18,13 +18,13 @@ package com.googlecode.menugen.ui.recipe;
 public class InstructionPanel extends javax.swing.JPanel {
 
 	/** Creates new form InstructionPanel */
-	public InstructionPanel(String instructions) {
+	public InstructionPanel(String instruction) {
 		initComponents();
 
-		stepText.setText(instructions);
+		stepText.setText(instruction);
 	}
 
-	public String getInstructions() {
+	public String getInstruction() {
 		return stepText.getText();
 	}
 

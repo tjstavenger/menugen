@@ -11,6 +11,8 @@
 
 package com.googlecode.menugen.ui.recipe;
 
+import java.util.List;
+
 import com.googlecode.menugen.domain.Ingredient;
 import com.googlecode.menugen.domain.MeasuredIngredient;
 import com.googlecode.menugen.domain.Unit;
@@ -25,18 +27,17 @@ import com.googlecode.menugen.utility.SpringContextUtility;
 public class IngredientPanel extends javax.swing.JPanel {
 
 	private MeasuredIngredient measuredIngredient;
-	private IngredientService ingredientService = SpringContextUtility
-			.getBean(IngredientService.class);
-	private UnitService unitService = SpringContextUtility
-			.getBean(UnitService.class);
+	private List<Ingredient> ingredients = SpringContextUtility.getBean(
+			IngredientService.class).retrieve();
+	private List<Unit> units = SpringContextUtility.getBean(UnitService.class)
+			.retrieve();
 
 	/** Creates new form IngredientPanel */
 	public IngredientPanel(MeasuredIngredient measuredIngredient) {
 		initComponents();
 
-		unitComboBox.setModel(new UnitComboBoxModel(unitService.retrieve()));
-		ingredientComboBox.setModel(new IngredientComboBoxModel(
-				ingredientService.retrieve()));
+		unitComboBox.setModel(new UnitComboBoxModel(units));
+		ingredientComboBox.setModel(new IngredientComboBoxModel(ingredients));
 
 		if (measuredIngredient == null) {
 			this.measuredIngredient = new MeasuredIngredient();
@@ -45,16 +46,38 @@ public class IngredientPanel extends javax.swing.JPanel {
 		}
 
 		amountText.setText(String.valueOf(this.measuredIngredient.getAmount()));
-		unitComboBox.setSelectedItem(this.measuredIngredient.getUnit());
+		unitComboBox.setSelectedItem(this.measuredIngredient.getUnit()
+				.getAbbreviation());
 		ingredientComboBox.setSelectedItem(this.measuredIngredient
-				.getIngredient());
+				.getIngredient().getName());
 	}
 
 	public MeasuredIngredient getMeasuredIngredient() {
 		measuredIngredient.setAmount(Double.parseDouble(amountText.getText()));
-		measuredIngredient.setUnit((Unit) unitComboBox.getSelectedItem());
-		measuredIngredient.setIngredient((Ingredient) ingredientComboBox
-				.getSelectedItem());
+
+		Unit unit;
+
+		if (unitComboBox.getSelectedIndex() == -1) {
+			String abbreviation = (String) unitComboBox.getSelectedItem();
+			unit = new Unit();
+			unit.setAbbreviation(abbreviation);
+		} else {
+			unit = units.get(unitComboBox.getSelectedIndex());
+		}
+
+		measuredIngredient.setUnit(unit);
+
+		Ingredient ingredient;
+
+		if (ingredientComboBox.getSelectedIndex() == -1) {
+			String name = (String) ingredientComboBox.getSelectedItem();
+			ingredient = new Ingredient();
+			ingredient.setName(name);
+		} else {
+			ingredient = ingredients.get(ingredientComboBox.getSelectedIndex());
+		}
+
+		measuredIngredient.setIngredient(ingredient);
 
 		return measuredIngredient;
 	}
