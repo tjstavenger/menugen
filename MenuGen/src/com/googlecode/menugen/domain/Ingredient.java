@@ -52,14 +52,4 @@ public class Ingredient extends DomainObject {
 	public void setName(String name) {
 		this.name = name;
 	}
-
-	/**
-	 * Return just the name for display in combobox.
-	 * 
-	 * @see com.googlecode.menugen.domain.DomainObject#toString()
-	 */
-	@Override
-	public String toString() {
-		return getName();
-	}
 }

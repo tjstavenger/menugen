@@ -12,11 +12,11 @@ import javax.swing.ComboBoxModel;
  * @author tstavenger
  * 
  */
-public class ListComboBoxModel<T> extends AbstractListModel implements
+public abstract class ListComboBoxModel<T> extends AbstractListModel implements
 		ComboBoxModel {
 
 	private List<T> items;
-	private T selectedItem;
+	private String selectedItem;
 
 	public ListComboBoxModel(List<T> items) {
 		this.items = items;
@@ -28,7 +28,7 @@ public class ListComboBoxModel<T> extends AbstractListModel implements
 	 * @see javax.swing.ComboBoxModel#getSelectedItem()
 	 */
 	@Override
-	public T getSelectedItem() {
+	public String getSelectedItem() {
 		return selectedItem;
 	}
 
@@ -39,17 +39,7 @@ public class ListComboBoxModel<T> extends AbstractListModel implements
 	 */
 	@Override
 	public void setSelectedItem(Object anItem) {
-		this.selectedItem = (T) anItem;
-	}
-
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see javax.swing.ListModel#getElementAt(int)
-	 */
-	@Override
-	public T getElementAt(int index) {
-		return items.get(index);
+		this.selectedItem = String.valueOf(anItem);
 	}
 
 	/*
@@ -60,5 +50,19 @@ public class ListComboBoxModel<T> extends AbstractListModel implements
 	@Override
 	public int getSize() {
 		return items.size();
+	}
+
+	/**
+	 * @return the items
+	 */
+	public List<T> getItems() {
+		return items;
+	}
+
+	/**
+	 * @param items the items to set
+	 */
+	public void setItems(List<T> items) {
+		this.items = items;
 	}
 }
