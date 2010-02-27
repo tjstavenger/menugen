@@ -71,7 +71,8 @@ public class MenuGenFrame extends javax.swing.JFrame implements
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Menu Generator");
 
-        toolBar.setRollover(true);
+        toolBar.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        toolBar.setFloatable(false);
         toolBar.setPreferredSize(new java.awt.Dimension(200, 23));
 
         createMenuButton.setText("Create Menu");
@@ -108,6 +109,8 @@ public class MenuGenFrame extends javax.swing.JFrame implements
             }
         });
         toolBar.add(searchButton);
+
+        contentsScrollPane.setBorder(null);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
