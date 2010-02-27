@@ -82,7 +82,7 @@ public class RecipeServiceImpl implements RecipeService {
 			do {
 				int random = RandomUtils.nextInt(recipes.size());
 				recipe = recipes.get(random);
-			} while (!menu.contains(recipe) && servings.size() < recipes.size());
+			} while (menu.contains(recipe) && servings.size() <= recipes.size());
 
 			menu.add(recipe);
 
