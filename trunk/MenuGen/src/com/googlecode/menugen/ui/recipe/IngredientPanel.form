@@ -23,7 +23,7 @@
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="ingredientComboBox" pref="213" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+              <Component id="removeButton" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -34,7 +34,7 @@
               <Component id="amountText" alignment="3" min="-2" max="-2" attributes="0"/>
               <Component id="unitComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
               <Component id="ingredientComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
-              <Component id="jButton1" alignment="3" min="-2" max="-2" attributes="0"/>
+              <Component id="removeButton" alignment="3" min="-2" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -63,12 +63,12 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JButton" name="jButton1">
+    <Component class="javax.swing.JButton" name="removeButton">
       <Properties>
         <Property name="text" type="java.lang.String" value="X"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButton1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="removeButtonActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

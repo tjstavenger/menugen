@@ -51,7 +51,7 @@ public class InstructionPanel extends RemovablePanel {
         stepLabel = new javax.swing.JLabel();
         stepScrollPanel = new javax.swing.JScrollPane();
         stepText = new javax.swing.JTextArea();
-        jButton1 = new javax.swing.JButton();
+        removeButton = new javax.swing.JButton();
 
         stepLabel.setText("1.");
 
@@ -61,10 +61,10 @@ public class InstructionPanel extends RemovablePanel {
         stepText.setRows(5);
         stepScrollPanel.setViewportView(stepText);
 
-        jButton1.setText("X");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        removeButton.setText("X");
+        removeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                removeButtonActionPerformed(evt);
             }
         });
 
@@ -77,24 +77,24 @@ public class InstructionPanel extends RemovablePanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(stepScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton1))
+                .addComponent(removeButton))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(stepLabel)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1))
+                .addComponent(removeButton))
             .addComponent(stepScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
-        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_removeButtonActionPerformed
             fireRemovePanelEvent(this);
-        }//GEN-LAST:event_jButton1ActionPerformed
+        }//GEN-LAST:event_removeButtonActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton removeButton;
     private javax.swing.JLabel stepLabel;
     private javax.swing.JScrollPane stepScrollPanel;
     private javax.swing.JTextArea stepText;
