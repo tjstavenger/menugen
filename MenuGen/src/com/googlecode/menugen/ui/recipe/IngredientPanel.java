@@ -102,14 +102,15 @@ public class IngredientPanel extends RemovablePanel {
 		if (unitComboBox.getSelectedIndex() == -1) {
 			String abbreviation = (String) unitComboBox.getSelectedItem();
 
-			if (StringUtils.isBlank(abbreviation)) {
-				unit = null;
-			} else {
+			if (StringUtils.isNotBlank(abbreviation)) {
 				unit = new Unit();
 				unit.setAbbreviation(abbreviation);
 			}
 		} else {
-			unit = UNITS.get(unitComboBox.getSelectedIndex());
+			// Skip empty option
+			if (unitComboBox.getSelectedIndex() > 0) {
+				unit = UNITS.get(unitComboBox.getSelectedIndex() - 1);
+			}
 		}
 
 		measuredIngredient.setUnit(unit);
@@ -139,13 +140,14 @@ public class IngredientPanel extends RemovablePanel {
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
 	// <editor-fold defaultstate="collapsed"
+	// <editor-fold defaultstate="collapsed"
 	// desc="Generated Code">//GEN-BEGIN:initComponents
 	private void initComponents() {
 
 		amountText = new javax.swing.JFormattedTextField();
 		unitComboBox = new javax.swing.JComboBox();
 		ingredientComboBox = new javax.swing.JComboBox();
-		jButton1 = new javax.swing.JButton();
+		removeButton = new javax.swing.JButton();
 
 		amountText
 				.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(
@@ -155,10 +157,10 @@ public class IngredientPanel extends RemovablePanel {
 
 		ingredientComboBox.setEditable(true);
 
-		jButton1.setText("X");
-		jButton1.addActionListener(new java.awt.event.ActionListener() {
+		removeButton.setText("X");
+		removeButton.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				jButton1ActionPerformed(evt);
+				removeButtonActionPerformed(evt);
 			}
 		});
 
@@ -189,7 +191,7 @@ public class IngredientPanel extends RemovablePanel {
 												213, Short.MAX_VALUE)
 										.addPreferredGap(
 												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(jButton1)
+										.addComponent(removeButton)
 										.addContainerGap()));
 		layout.setVerticalGroup(layout.createParallelGroup(
 				javax.swing.GroupLayout.Alignment.LEADING).addGroup(
@@ -207,17 +209,17 @@ public class IngredientPanel extends RemovablePanel {
 								javax.swing.GroupLayout.PREFERRED_SIZE,
 								javax.swing.GroupLayout.DEFAULT_SIZE,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addComponent(jButton1)));
+						.addComponent(removeButton)));
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
+	private void removeButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_jButton1ActionPerformed
 		fireRemovePanelEvent(this);
 	}// GEN-LAST:event_jButton1ActionPerformed
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
 	private javax.swing.JFormattedTextField amountText;
 	private javax.swing.JComboBox ingredientComboBox;
-	private javax.swing.JButton jButton1;
+	private javax.swing.JButton removeButton;
 	private javax.swing.JComboBox unitComboBox;
 	// End of variables declaration//GEN-END:variables
 
