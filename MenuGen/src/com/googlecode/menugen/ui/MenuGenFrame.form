@@ -23,8 +23,8 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="toolBar" alignment="0" pref="440" max="32767" attributes="0"/>
-          <Component id="contentsScrollPane" alignment="0" pref="440" max="32767" attributes="0"/>
+          <Component id="toolBar" alignment="0" pref="462" max="32767" attributes="0"/>
+          <Component id="contentsScrollPane" alignment="0" pref="462" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -32,7 +32,7 @@
           <Group type="102" alignment="0" attributes="0">
               <Component id="toolBar" min="-2" pref="25" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="contentsScrollPane" pref="432" max="32767" attributes="0"/>
+              <Component id="contentsScrollPane" pref="674" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
