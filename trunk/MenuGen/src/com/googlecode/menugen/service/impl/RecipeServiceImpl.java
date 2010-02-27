@@ -46,7 +46,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional
 	public Recipe create(Recipe recipe) {
 		LOG.debug("Creating Recipe: " + recipe);
-		
+
 		return recipeDao.saveOrUpdate(recipe);
 	}
 
@@ -88,7 +88,7 @@ public class RecipeServiceImpl implements RecipeService {
 
 			// TODO handle leftovers
 		}
-		
+
 		return menu;
 	}
 
@@ -148,8 +148,12 @@ public class RecipeServiceImpl implements RecipeService {
 				}
 
 				stringBuilder.append(amountEntry.getValue());
-				stringBuilder.append(" ");
-				stringBuilder.append(amountEntry.getKey().getAbbreviation());
+
+				if (amountEntry.getKey() != null) {
+					stringBuilder.append(" ");
+					stringBuilder
+							.append(amountEntry.getKey().getAbbreviation());
+				}
 			}
 
 			stringBuilder.append(" ");
@@ -242,7 +246,7 @@ public class RecipeServiceImpl implements RecipeService {
 	@Transactional
 	public Recipe update(Recipe recipe) {
 		LOG.debug("Updating Recipe: " + recipe);
-		
+
 		return recipeDao.saveOrUpdate(recipe);
 	}
 }

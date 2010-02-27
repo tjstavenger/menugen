@@ -8,9 +8,9 @@
 <!-- You can turn off the Compile on Save (or Deploy on Save) setting -->
 <!-- in the project's Project Properties dialog box.-->
 <project name="MenuGen" default="default" basedir=".">
-    <description>Builds, tests, and runs the project MenuGen.</description>
-    <import file="nbproject/build-impl.xml"/>
-    <!--
+	<description>Builds, tests, and runs the project MenuGen.</description>
+	<import file="nbproject/build-impl.xml" />
+	<!--
 
     There exist several targets which are by default empty and which can be 
     used for execution of your tasks. These targets are usually executed 
@@ -71,4 +71,15 @@
     nbproject/build-impl.xml file. 
 
     -->
+	<target name="-post-jar">
+		<echo>Copying data folder...</echo>
+		<mkdir dir="${dist.dir}/data" />
+		<copy todir="${dist.dir}/data">
+			<fileset dir="data">
+				<include name="**" />
+			</fileset>
+		</copy>
+		<!-- Empty placeholder for easier customization. -->
+		<!-- You can override this target in the ../build.xml file. -->
+	</target>
 </project>
