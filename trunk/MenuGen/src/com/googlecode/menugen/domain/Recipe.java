@@ -41,13 +41,13 @@ public class Recipe extends DomainObject {
 	private Double cookingTime;
 	@OneToMany(fetch = FetchType.EAGER)
 	@IndexColumn(name = "ingredientsIndex")
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade(CascadeType.ALL)
 	private List<MeasuredIngredient> ingredients = new ArrayList<MeasuredIngredient>(
 			0);
 	@CollectionOfElements(fetch = FetchType.EAGER)
 	@IndexColumn(name = "instructionsIndex")
 	@Column(length = 2000)
-	@Cascade(CascadeType.SAVE_UPDATE)
+	@Cascade(CascadeType.ALL)
 	private List<String> instructions = new ArrayList<String>(0);
 	@Column(length = 2000)
 	private String notes;
