@@ -22,11 +22,12 @@ import com.googlecode.menugen.ui.search.SearchPanel;
 import com.googlecode.menugen.utility.SpringContextUtility;
 
 /**
- * 
- * @author tstavenger
+ * Main application
  */
 public class MenuGenFrame extends javax.swing.JFrame implements
 		RecipeSelectedEventListener {
+
+	private static final long serialVersionUID = 1L;
 
 	static {
 		try {

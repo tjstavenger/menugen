@@ -20,10 +20,10 @@ import com.googlecode.menugen.service.RecipeService;
 import com.googlecode.menugen.utility.SpringContextUtility;
 
 /**
- * 
- * @author tstavenger
+ * Visually represent a Mean (plan of meals)
  */
 public class MenuPanel extends javax.swing.JPanel {
+	private static final long serialVersionUID = 1L;
 	private static final String LINE_SEPARATOR = System
 			.getProperty("line.separator");
 
@@ -139,6 +139,11 @@ public class MenuPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+	/**
+	 * Create a new meau of meals for the given number of meals each with the given number of servings.
+	 * 
+	 * @param evt click event
+	 */
 	private void createMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_createMenuButtonActionPerformed
 		if (NumberUtils.isNumber(numberOfMealsText.getText())
 				&& NumberUtils.isNumber(servingsText.getText())) {
@@ -151,7 +156,7 @@ public class MenuPanel extends javax.swing.JPanel {
 				servingsPerMeal.add(servings);
 			}
 
-			this.menu = recipeService.createMenu(servingsPerMeal);
+			List<Recipe> menu = recipeService.createMenu(servingsPerMeal);
 			StringBuilder meals = new StringBuilder();
 
 			for (Recipe recipe : menu) {
@@ -191,5 +196,4 @@ public class MenuPanel extends javax.swing.JPanel {
 
 	private RecipeService recipeService = SpringContextUtility
 			.getBean(RecipeService.class);
-	private List<Recipe> menu;
 }

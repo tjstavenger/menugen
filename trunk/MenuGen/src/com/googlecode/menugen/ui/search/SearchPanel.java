@@ -20,8 +20,7 @@ import com.googlecode.menugen.service.RecipeService;
 import com.googlecode.menugen.utility.SpringContextUtility;
 
 /**
- * 
- * @author tstavenger
+ * Visually represent searching for {@link Recipe}.
  */
 public class SearchPanel extends javax.swing.JPanel {
 
