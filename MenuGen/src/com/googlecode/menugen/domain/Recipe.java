@@ -33,7 +33,7 @@ public class Recipe extends DomainObject {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(length = 2000)
+	@Column(length = 2000, unique = true)
 	private String name;
 	private Integer serves;
 	private Double prepartionTime;

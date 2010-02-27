@@ -20,7 +20,7 @@ public class Ingredient extends DomainObject {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(length = 2000)
+	@Column(length = 2000, unique = true)
 	private String name;
 
 	/**

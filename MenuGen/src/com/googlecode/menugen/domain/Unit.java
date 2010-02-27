@@ -20,7 +20,7 @@ public class Unit extends DomainObject {
 	@Id
 	@GeneratedValue
 	private Long id;
-	@Column(length = 20)
+	@Column(length = 20, unique = true)
 	private String abbreviation;
 
 	/**
