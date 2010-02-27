@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
-<Form version="1.3" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+<Form version="1.5" maxVersion="1.7" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
   <Properties>
     <Property name="requestFocusEnabled" type="boolean" value="false"/>
   </Properties>
@@ -160,21 +160,36 @@
         <Property name="text" type="java.lang.String" value="Serves:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="servesText">
+    <Component class="javax.swing.JFormattedTextField" name="servesText">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format subtype="1" type="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="prepTimeLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Prep Time:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="prepTimeText">
+    <Component class="javax.swing.JFormattedTextField" name="prepTimeText">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format subtype="0" type="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="cookTimeLabel">
       <Properties>
         <Property name="text" type="java.lang.String" value="Cook Time:"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="cookTimeText">
+    <Component class="javax.swing.JFormattedTextField" name="cookTimeText">
+      <Properties>
+        <Property name="formatterFactory" type="javax.swing.JFormattedTextField$AbstractFormatterFactory" editor="org.netbeans.modules.form.editors.AbstractFormatterFactoryEditor">
+          <Format subtype="0" type="0"/>
+        </Property>
+      </Properties>
     </Component>
     <Component class="javax.swing.JSeparator" name="ingredientsSeparator">
     </Component>

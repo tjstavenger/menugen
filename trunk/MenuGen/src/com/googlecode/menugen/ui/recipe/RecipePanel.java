@@ -88,388 +88,210 @@ public class RecipePanel extends javax.swing.JPanel {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		nameLabel = new javax.swing.JLabel();
-		nameText = new javax.swing.JTextField();
-		servesLabel = new javax.swing.JLabel();
-		servesText = new javax.swing.JTextField();
-		prepTimeLabel = new javax.swing.JLabel();
-		prepTimeText = new javax.swing.JTextField();
-		cookTimeLabel = new javax.swing.JLabel();
-		cookTimeText = new javax.swing.JTextField();
-		ingredientsSeparator = new javax.swing.JSeparator();
-		ingredientsLabel = new javax.swing.JLabel();
-		instructionsLabel = new javax.swing.JLabel();
-		instructionsSeparator = new javax.swing.JSeparator();
-		notesLabel = new javax.swing.JLabel();
-		notesSeparator = new javax.swing.JSeparator();
-		notesScrollPane = new javax.swing.JScrollPane();
-		notesText = new javax.swing.JTextArea();
-		amountLabel = new javax.swing.JLabel();
-		unitLabel = new javax.swing.JLabel();
-		ingredientLabel = new javax.swing.JLabel();
-		ingredientsScrollPane = new javax.swing.JScrollPane();
-		ingredientsPanel = new javax.swing.JPanel();
-		instructionsScrollPane = new javax.swing.JScrollPane();
-		instructionsPanel = new javax.swing.JPanel();
-		saveButton = new javax.swing.JButton();
-		addIngredientButton = new javax.swing.JButton();
-		addStepButton = new javax.swing.JButton();
+        nameLabel = new javax.swing.JLabel();
+        nameText = new javax.swing.JTextField();
+        servesLabel = new javax.swing.JLabel();
+        servesText = new javax.swing.JFormattedTextField();
+        prepTimeLabel = new javax.swing.JLabel();
+        prepTimeText = new javax.swing.JFormattedTextField();
+        cookTimeLabel = new javax.swing.JLabel();
+        cookTimeText = new javax.swing.JFormattedTextField();
+        ingredientsSeparator = new javax.swing.JSeparator();
+        ingredientsLabel = new javax.swing.JLabel();
+        instructionsLabel = new javax.swing.JLabel();
+        instructionsSeparator = new javax.swing.JSeparator();
+        notesLabel = new javax.swing.JLabel();
+        notesSeparator = new javax.swing.JSeparator();
+        notesScrollPane = new javax.swing.JScrollPane();
+        notesText = new javax.swing.JTextArea();
+        amountLabel = new javax.swing.JLabel();
+        unitLabel = new javax.swing.JLabel();
+        ingredientLabel = new javax.swing.JLabel();
+        ingredientsScrollPane = new javax.swing.JScrollPane();
+        ingredientsPanel = new javax.swing.JPanel();
+        instructionsScrollPane = new javax.swing.JScrollPane();
+        instructionsPanel = new javax.swing.JPanel();
+        saveButton = new javax.swing.JButton();
+        addIngredientButton = new javax.swing.JButton();
+        addStepButton = new javax.swing.JButton();
 
-		setRequestFocusEnabled(false);
+        setRequestFocusEnabled(false);
 
-		nameLabel.setText("Name:");
+        nameLabel.setText("Name:");
 
-		servesLabel.setText("Serves:");
+        servesLabel.setText("Serves:");
 
-		prepTimeLabel.setText("Prep Time:");
+        servesText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter(java.text.NumberFormat.getIntegerInstance())));
 
-		cookTimeLabel.setText("Cook Time:");
+        prepTimeLabel.setText("Prep Time:");
 
-		ingredientsLabel.setFont(new java.awt.Font("Tahoma", 1, 11));
-		ingredientsLabel.setText("Ingredients");
+        prepTimeText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
-		instructionsLabel.setFont(new java.awt.Font("Tahoma", 1, 11));
-		instructionsLabel.setText("Instructions");
+        cookTimeLabel.setText("Cook Time:");
 
-		notesLabel.setFont(new java.awt.Font("Tahoma", 1, 11));
-		notesLabel.setText("Notes");
+        cookTimeText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
-		notesScrollPane
-				.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        ingredientsLabel.setFont(new java.awt.Font("Tahoma", 1, 11));
+        ingredientsLabel.setText("Ingredients");
 
-		notesText.setColumns(20);
-		notesText.setRows(5);
-		notesScrollPane.setViewportView(notesText);
+        instructionsLabel.setFont(new java.awt.Font("Tahoma", 1, 11));
+        instructionsLabel.setText("Instructions");
 
-		amountLabel.setText("Amount");
+        notesLabel.setFont(new java.awt.Font("Tahoma", 1, 11));
+        notesLabel.setText("Notes");
 
-		unitLabel.setText("Unit");
+        notesScrollPane.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-		ingredientLabel.setText("Ingredient");
+        notesText.setColumns(20);
+        notesText.setRows(5);
+        notesScrollPane.setViewportView(notesText);
 
-		ingredientsPanel.setLayout(null);
-		ingredientsScrollPane.setViewportView(ingredientsPanel);
+        amountLabel.setText("Amount");
 
-		instructionsPanel.setLayout(null);
-		instructionsScrollPane.setViewportView(instructionsPanel);
+        unitLabel.setText("Unit");
 
-		saveButton.setText("Save");
-		saveButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				saveButtonActionPerformed(evt);
-			}
-		});
+        ingredientLabel.setText("Ingredient");
 
-		addIngredientButton.setText("Add Ingredient");
-		addIngredientButton
-				.addActionListener(new java.awt.event.ActionListener() {
-					public void actionPerformed(java.awt.event.ActionEvent evt) {
-						addIngredientButtonActionPerformed(evt);
-					}
-				});
+        ingredientsPanel.setLayout(null);
+        ingredientsScrollPane.setViewportView(ingredientsPanel);
 
-		addStepButton.setText("Add Step");
-		addStepButton.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				addStepButtonActionPerformed(evt);
-			}
-		});
+        instructionsPanel.setLayout(null);
+        instructionsScrollPane.setViewportView(instructionsPanel);
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-		this.setLayout(layout);
-		layout
-				.setHorizontalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.LEADING)
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addGroup(
-																				layout
-																						.createParallelGroup(
-																								javax.swing.GroupLayout.Alignment.LEADING)
-																						.addGroup(
-																								layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												amountLabel)
-																										.addGap(
-																												36,
-																												36,
-																												36)
-																										.addComponent(
-																												unitLabel)
-																										.addGap(
-																												115,
-																												115,
-																												115)
-																										.addComponent(
-																												ingredientLabel))
-																						.addGroup(
-																								layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												nameLabel)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												nameText,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												359,
-																												Short.MAX_VALUE))
-																						.addGroup(
-																								layout
-																										.createSequentialGroup()
-																										.addComponent(
-																												servesLabel)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-																										.addComponent(
-																												servesText,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												60,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(
-																												18,
-																												18,
-																												18)
-																										.addComponent(
-																												prepTimeLabel)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												prepTimeText,
-																												javax.swing.GroupLayout.PREFERRED_SIZE,
-																												68,
-																												javax.swing.GroupLayout.PREFERRED_SIZE)
-																										.addGap(
-																												18,
-																												18,
-																												18)
-																										.addComponent(
-																												cookTimeLabel)
-																										.addPreferredGap(
-																												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-																										.addComponent(
-																												cookTimeText,
-																												javax.swing.GroupLayout.DEFAULT_SIZE,
-																												71,
-																												Short.MAX_VALUE))
-																						.addComponent(
-																								ingredientsLabel)
-																						.addComponent(
-																								ingredientsScrollPane,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								400,
-																								Short.MAX_VALUE)
-																						.addComponent(
-																								ingredientsSeparator,
-																								javax.swing.GroupLayout.DEFAULT_SIZE,
-																								400,
-																								Short.MAX_VALUE)))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				instructionsLabel))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				instructionsSeparator,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				400,
-																				Short.MAX_VALUE))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				notesLabel))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				notesSeparator,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				400,
-																				Short.MAX_VALUE))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				notesScrollPane,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				400,
-																				Short.MAX_VALUE))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addContainerGap()
-																		.addComponent(
-																				instructionsScrollPane,
-																				javax.swing.GroupLayout.DEFAULT_SIZE,
-																				400,
-																				Short.MAX_VALUE))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addGap(
-																				157,
-																				157,
-																				157)
-																		.addComponent(
-																				addIngredientButton))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addGap(
-																				167,
-																				167,
-																				167)
-																		.addComponent(
-																				addStepButton))
-														.addGroup(
-																layout
-																		.createSequentialGroup()
-																		.addGap(
-																				179,
-																				179,
-																				179)
-																		.addComponent(
-																				saveButton)))
-										.addContainerGap()));
-		layout
-				.setVerticalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(nameLabel)
-														.addComponent(
-																nameText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																servesLabel)
-														.addComponent(
-																servesText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																prepTimeLabel)
-														.addComponent(
-																prepTimeText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																cookTimeText,
-																javax.swing.GroupLayout.PREFERRED_SIZE,
-																javax.swing.GroupLayout.DEFAULT_SIZE,
-																javax.swing.GroupLayout.PREFERRED_SIZE)
-														.addComponent(
-																cookTimeLabel))
-										.addGap(18, 18, 18)
-										.addComponent(ingredientsLabel)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												ingredientsSeparator,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												10,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addGap(1, 1, 1)
-										.addGroup(
-												layout
-														.createParallelGroup(
-																javax.swing.GroupLayout.Alignment.BASELINE)
-														.addComponent(
-																amountLabel)
-														.addComponent(unitLabel)
-														.addComponent(
-																ingredientLabel))
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												ingredientsScrollPane,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												100,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(addIngredientButton)
-										.addGap(7, 7, 7)
-										.addComponent(instructionsLabel)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												instructionsSeparator,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												10,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												instructionsScrollPane,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												100,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(addStepButton)
-										.addGap(12, 12, 12)
-										.addComponent(notesLabel)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												notesSeparator,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												10,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(
-												notesScrollPane,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												100,
-												javax.swing.GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(saveButton)
-										.addContainerGap(
-												javax.swing.GroupLayout.DEFAULT_SIZE,
-												Short.MAX_VALUE)));
-	}// </editor-fold>//GEN-END:initComponents
+        saveButton.setText("Save");
+        saveButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                saveButtonActionPerformed(evt);
+            }
+        });
+
+        addIngredientButton.setText("Add Ingredient");
+        addIngredientButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addIngredientButtonActionPerformed(evt);
+            }
+        });
+
+        addStepButton.setText("Add Step");
+        addStepButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addStepButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(amountLabel)
+                                .addGap(36, 36, 36)
+                                .addComponent(unitLabel)
+                                .addGap(115, 115, 115)
+                                .addComponent(ingredientLabel))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(nameLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(nameText, javax.swing.GroupLayout.DEFAULT_SIZE, 359, Short.MAX_VALUE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(servesLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(servesText, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(prepTimeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(prepTimeText, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(cookTimeLabel)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(cookTimeText, javax.swing.GroupLayout.DEFAULT_SIZE, 71, Short.MAX_VALUE))
+                            .addComponent(ingredientsLabel)
+                            .addComponent(ingredientsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                            .addComponent(ingredientsSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(instructionsLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(instructionsSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(notesLabel))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(notesSeparator, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(notesScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(instructionsScrollPane, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(157, 157, 157)
+                        .addComponent(addIngredientButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(167, 167, 167)
+                        .addComponent(addStepButton))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(179, 179, 179)
+                        .addComponent(saveButton)))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nameLabel)
+                    .addComponent(nameText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(servesLabel)
+                    .addComponent(servesText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(prepTimeLabel)
+                    .addComponent(prepTimeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cookTimeText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cookTimeLabel))
+                .addGap(18, 18, 18)
+                .addComponent(ingredientsLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingredientsSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(amountLabel)
+                    .addComponent(unitLabel)
+                    .addComponent(ingredientLabel))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(ingredientsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addIngredientButton)
+                .addGap(7, 7, 7)
+                .addComponent(instructionsLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(instructionsSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(instructionsScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(addStepButton)
+                .addGap(12, 12, 12)
+                .addComponent(notesLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(notesSeparator, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(notesScrollPane, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(saveButton)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+    }// </editor-fold>//GEN-END:initComponents
 
 	private void addStepButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addStepButtonActionPerformed
 		addStep(null);
@@ -563,34 +385,34 @@ public class RecipePanel extends javax.swing.JPanel {
 		recipe.setNotes(notesText.getText());
 	}
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JButton addIngredientButton;
-	private javax.swing.JButton addStepButton;
-	private javax.swing.JLabel amountLabel;
-	private javax.swing.JLabel cookTimeLabel;
-	private javax.swing.JTextField cookTimeText;
-	private javax.swing.JLabel ingredientLabel;
-	private javax.swing.JLabel ingredientsLabel;
-	private javax.swing.JPanel ingredientsPanel;
-	private javax.swing.JScrollPane ingredientsScrollPane;
-	private javax.swing.JSeparator ingredientsSeparator;
-	private javax.swing.JLabel instructionsLabel;
-	private javax.swing.JPanel instructionsPanel;
-	private javax.swing.JScrollPane instructionsScrollPane;
-	private javax.swing.JSeparator instructionsSeparator;
-	private javax.swing.JLabel nameLabel;
-	private javax.swing.JTextField nameText;
-	private javax.swing.JLabel notesLabel;
-	private javax.swing.JScrollPane notesScrollPane;
-	private javax.swing.JSeparator notesSeparator;
-	private javax.swing.JTextArea notesText;
-	private javax.swing.JLabel prepTimeLabel;
-	private javax.swing.JTextField prepTimeText;
-	private javax.swing.JButton saveButton;
-	private javax.swing.JLabel servesLabel;
-	private javax.swing.JTextField servesText;
-	private javax.swing.JLabel unitLabel;
-	// End of variables declaration//GEN-END:variables
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton addIngredientButton;
+    private javax.swing.JButton addStepButton;
+    private javax.swing.JLabel amountLabel;
+    private javax.swing.JLabel cookTimeLabel;
+    private javax.swing.JFormattedTextField cookTimeText;
+    private javax.swing.JLabel ingredientLabel;
+    private javax.swing.JLabel ingredientsLabel;
+    private javax.swing.JPanel ingredientsPanel;
+    private javax.swing.JScrollPane ingredientsScrollPane;
+    private javax.swing.JSeparator ingredientsSeparator;
+    private javax.swing.JLabel instructionsLabel;
+    private javax.swing.JPanel instructionsPanel;
+    private javax.swing.JScrollPane instructionsScrollPane;
+    private javax.swing.JSeparator instructionsSeparator;
+    private javax.swing.JLabel nameLabel;
+    private javax.swing.JTextField nameText;
+    private javax.swing.JLabel notesLabel;
+    private javax.swing.JScrollPane notesScrollPane;
+    private javax.swing.JSeparator notesSeparator;
+    private javax.swing.JTextArea notesText;
+    private javax.swing.JLabel prepTimeLabel;
+    private javax.swing.JFormattedTextField prepTimeText;
+    private javax.swing.JButton saveButton;
+    private javax.swing.JLabel servesLabel;
+    private javax.swing.JFormattedTextField servesText;
+    private javax.swing.JLabel unitLabel;
+    // End of variables declaration//GEN-END:variables
 	private RecipeService recipeService = SpringContextUtility
 			.getBean(RecipeService.class);
 }
