@@ -528,6 +528,8 @@ public class RecipePanel extends javax.swing.JPanel {
             recipe.setCookingTime(Double.valueOf(cookTimeText.getText()));
         }
 
+        recipe.getIngredients().clear();
+        
         if (ingredientsPanel.getComponentCount() > 0) {
             for (Component component : ingredientsPanel.getComponents()) {
                 IngredientPanel ingredientPanel = (IngredientPanel) component;
@@ -538,6 +540,8 @@ public class RecipePanel extends javax.swing.JPanel {
                 }
             }
         }
+        
+        recipe.getInstructions().clear();
 
         if (instructionsPanel.getComponentCount() > 0) {
             for (Component component : instructionsPanel.getComponents()) {

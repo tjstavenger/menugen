@@ -10,6 +10,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 
 import org.apache.commons.lang.math.RandomUtils;
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -26,6 +27,7 @@ import com.googlecode.menugen.service.RecipeService;
  */
 @Service
 public class RecipeServiceImpl implements RecipeService {
+	private static final Logger LOG = Logger.getLogger(RecipeServiceImpl.class);
 
 	@Autowired
 	private RecipeDao recipeDao;
@@ -43,6 +45,8 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional
 	public Recipe create(Recipe recipe) {
+		LOG.debug("Creating Recipe: " + recipe);
+		
 		return recipeDao.saveOrUpdate(recipe);
 	}
 
@@ -237,6 +241,8 @@ public class RecipeServiceImpl implements RecipeService {
 	@Override
 	@Transactional
 	public Recipe update(Recipe recipe) {
+		LOG.debug("Updating Recipe: " + recipe);
+		
 		return recipeDao.saveOrUpdate(recipe);
 	}
 }
