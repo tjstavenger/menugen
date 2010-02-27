@@ -15,7 +15,7 @@ package com.googlecode.menugen.ui.recipe;
  * 
  * @author tstavenger
  */
-public class InstructionPanel extends javax.swing.JPanel {
+public class InstructionPanel extends RemovablePanel {
 
 	/** Creates new form InstructionPanel */
 	public InstructionPanel(String instruction) {
@@ -45,50 +45,59 @@ public class InstructionPanel extends javax.swing.JPanel {
 	 */
 	@SuppressWarnings("unchecked")
 	// <editor-fold defaultstate="collapsed"
-	// desc="Generated Code">//GEN-BEGIN:initComponents
-	private void initComponents() {
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
 
-		stepLabel = new javax.swing.JLabel();
-		stepScrollPanel = new javax.swing.JScrollPane();
-		stepText = new javax.swing.JTextArea();
+        stepLabel = new javax.swing.JLabel();
+        stepScrollPanel = new javax.swing.JScrollPane();
+        stepText = new javax.swing.JTextArea();
+        jButton1 = new javax.swing.JButton();
 
-		stepLabel.setText("1.");
+        stepLabel.setText("1.");
 
-		stepScrollPanel
-				.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        stepScrollPanel.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
 
-		stepText.setColumns(20);
-		stepText.setRows(5);
-		stepScrollPanel.setViewportView(stepText);
+        stepText.setColumns(20);
+        stepText.setRows(5);
+        stepScrollPanel.setViewportView(stepText);
 
-		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-		this.setLayout(layout);
-		layout
-				.setHorizontalGroup(layout
-						.createParallelGroup(
-								javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(
-								layout
-										.createSequentialGroup()
-										.addComponent(stepLabel)
-										.addPreferredGap(
-												javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-										.addComponent(
-												stepScrollPanel,
-												javax.swing.GroupLayout.PREFERRED_SIZE,
-												344,
-												javax.swing.GroupLayout.PREFERRED_SIZE)));
-		layout.setVerticalGroup(layout.createParallelGroup(
-				javax.swing.GroupLayout.Alignment.LEADING).addComponent(
-				stepLabel).addComponent(stepScrollPanel,
-				javax.swing.GroupLayout.PREFERRED_SIZE, 56,
-				javax.swing.GroupLayout.PREFERRED_SIZE));
-	}// </editor-fold>//GEN-END:initComponents
+        jButton1.setText("X");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
-	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel stepLabel;
-	private javax.swing.JScrollPane stepScrollPanel;
-	private javax.swing.JTextArea stepText;
-	// End of variables declaration//GEN-END:variables
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(stepLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(stepScrollPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 335, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1))
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(stepLabel)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jButton1))
+            .addComponent(stepScrollPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
+    }// </editor-fold>//GEN-END:initComponents
+
+        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            fireRemovePanelEvent(this);
+        }//GEN-LAST:event_jButton1ActionPerformed
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel stepLabel;
+    private javax.swing.JScrollPane stepScrollPanel;
+    private javax.swing.JTextArea stepText;
+    // End of variables declaration//GEN-END:variables
 
 }

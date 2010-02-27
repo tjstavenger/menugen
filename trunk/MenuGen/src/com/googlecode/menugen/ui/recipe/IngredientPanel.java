@@ -27,7 +27,7 @@ import com.googlecode.menugen.utility.SpringContextUtility;
  * 
  * @author tstavenger
  */
-public class IngredientPanel extends javax.swing.JPanel {
+public class IngredientPanel extends RemovablePanel {
 
 	private MeasuredIngredient measuredIngredient;
 	private static List<Ingredient> INGREDIENTS = SpringContextUtility.getBean(
@@ -137,12 +137,20 @@ public class IngredientPanel extends javax.swing.JPanel {
         amountText = new javax.swing.JFormattedTextField();
         unitComboBox = new javax.swing.JComboBox();
         ingredientComboBox = new javax.swing.JComboBox();
+        jButton1 = new javax.swing.JButton();
 
         amountText.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.NumberFormatter()));
 
         unitComboBox.setEditable(true);
 
         ingredientComboBox.setEditable(true);
+
+        jButton1.setText("X");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -153,20 +161,29 @@ public class IngredientPanel extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(unitComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(ingredientComboBox, 0, 225, Short.MAX_VALUE))
+                .addComponent(ingredientComboBox, 0, 213, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                 .addComponent(amountText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(unitComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addComponent(ingredientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(ingredientComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jButton1))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+        private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+            fireRemovePanelEvent(this);
+        }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField amountText;
     private javax.swing.JComboBox ingredientComboBox;
+    private javax.swing.JButton jButton1;
     private javax.swing.JComboBox unitComboBox;
     // End of variables declaration//GEN-END:variables
 
