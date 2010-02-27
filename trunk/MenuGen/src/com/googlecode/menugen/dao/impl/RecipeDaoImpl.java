@@ -45,18 +45,17 @@ public class RecipeDaoImpl extends DataAccessObjectImpl<Recipe, Long> implements
 	 */
 	@Override
 	public List<Recipe> search(String criteria) {
-		Disjunction or = Restrictions.disjunction();
-		or.add(Restrictions.ilike(Recipe.NAME, "%" + criteria + "%"));
+		Criteria crit = createCriteria();
+		crit.add(Restrictions.ilike(Recipe.NAME, "%" + criteria + "%"));
 
-		// TODO not sure how to search on this table?
+		// TODO search ingredients and instructions? (subqueries)
+		// Disjunction or = Restrictions.disjunction();
+		// or.add(Restrictions.ilike(Recipe.NAME, "%" + criteria + "%"));
 		// or.add(Restrictions.ilike(Recipe.INSTRUCTIONS, criteria));
-
-		// TODO requires subquery
 		// or.add(Restrictions.ilike(Recipe.MEASURED_INGREDIENT_NAME,
 		// criteria));
+		// crit.add(or);
 
-		Criteria crit = createCriteria();
-		crit.add(or);
 		List<Recipe> recipes = crit.list();
 
 		return recipes;
