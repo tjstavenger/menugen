@@ -25,7 +25,6 @@ public class UnitTest extends MenuGenTestCase {
 	 */
 	@Test
 	public void createData() {
-		addUnit("cup");
 		addUnit("cups");
 		addUnit("dash");
 		addUnit("pinch");
