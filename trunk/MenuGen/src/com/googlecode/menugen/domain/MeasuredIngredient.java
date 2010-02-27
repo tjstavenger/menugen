@@ -3,11 +3,13 @@
  */
 package com.googlecode.menugen.domain;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 
 /**
  * A single measured ingredient within a recipe.
@@ -20,9 +22,11 @@ public class MeasuredIngredient extends DomainObject {
 	@GeneratedValue
 	private Long id;
 	private double amount;
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private Unit unit;
-	@ManyToOne(cascade = { CascadeType.PERSIST })
+	@ManyToOne
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private Ingredient ingredient;
 
 	/**

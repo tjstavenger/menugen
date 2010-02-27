@@ -6,7 +6,6 @@ package com.googlecode.menugen.domain;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -14,6 +13,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import org.hibernate.annotations.Cascade;
+import org.hibernate.annotations.CascadeType;
 import org.hibernate.annotations.CollectionOfElements;
 import org.hibernate.annotations.IndexColumn;
 
@@ -38,13 +39,15 @@ public class Recipe extends DomainObject {
 	private Integer serves;
 	private Double prepartionTime;
 	private Double cookingTime;
-	@OneToMany(cascade = { CascadeType.ALL }, fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER)
 	@IndexColumn(name = "ingredientsIndex")
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<MeasuredIngredient> ingredients = new ArrayList<MeasuredIngredient>(
 			0);
 	@CollectionOfElements(fetch = FetchType.EAGER)
 	@IndexColumn(name = "instructionsIndex")
 	@Column(length = 2000)
+	@Cascade(CascadeType.SAVE_UPDATE)
 	private List<String> instructions = new ArrayList<String>(0);
 	@Column(length = 2000)
 	private String notes;
