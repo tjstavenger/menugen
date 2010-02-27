@@ -26,12 +26,12 @@ import com.googlecode.menugen.utility.SpringContextUtility;
 import javax.swing.JPanel;
 
 /**
- * 
- * @author tstavenger
+ * Visaully represent a {@link Recipe} for create/update.
  */
 public class RecipePanel extends javax.swing.JPanel implements PanelRemovedEventListener {
-
-    private Recipe recipe;
+	private static final long serialVersionUID = 1L;
+	
+	private Recipe recipe;
 
     /** Creates new form NewJPanel */
     public RecipePanel(Recipe recipe) {
@@ -48,6 +48,9 @@ public class RecipePanel extends javax.swing.JPanel implements PanelRemovedEvent
         }
     }
 
+    /**
+     * Populate the components with the data values from the current {@link Recipe}.
+     */
     private void populateValues() {
         ingredientsPanel.removeAll();
         instructionsPanel.removeAll();
@@ -292,11 +295,21 @@ public class RecipePanel extends javax.swing.JPanel implements PanelRemovedEvent
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    /**
+     * Add a new, empty instructions step and scroll the instructions scroll pane to the bottom.
+     * 
+     * @param evt click event
+     */
     private void addStepButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addStepButtonActionPerformed
         addStep(null);
         scrollToBottom(instructionsScrollPane);
     }// GEN-LAST:event_addStepButtonActionPerformed
 
+    /**
+     * Dynamically add a step in the recipe's instructions.
+     * 
+       @param instructions new step to add
+     */
     private void addStep(String instructions) {
         int step = instructionsPanel.getComponentCount() + 1;
         InstructionPanel instructionPanel = new InstructionPanel(instructions);
@@ -307,12 +320,22 @@ public class RecipePanel extends javax.swing.JPanel implements PanelRemovedEvent
         instructionsPanel.repaint();
     }
 
+    /**
+     * Add a new, empty {@link MeasuredIngredient} and scroll the ingredients scroll pane to the bottom for data entry.
+     * 
+     * @param evt click event
+     */
     private void addIngredientButtonActionPerformed(
             java.awt.event.ActionEvent evt) {// GEN-FIRST:event_addIngredientButtonActionPerformed
         addIngredient(null);
         scrollToBottom(ingredientsScrollPane);
     }// GEN-LAST:event_addIngredientButtonActionPerformed
 
+    /**
+     * Dynamically add a {@link MeasuredIngredient} to the panel containing all this recipe's ingredients.
+     *  
+     * @param measuredIngredient {@link MeasuredIngredient} to add
+     */
     private void addIngredient(MeasuredIngredient measuredIngredient) {
         IngredientPanel ingredientPanel = new IngredientPanel(measuredIngredient);
         ingredientPanel.addPanelRemovedEventListener(this);
@@ -349,6 +372,11 @@ public class RecipePanel extends javax.swing.JPanel implements PanelRemovedEvent
         }
     }
 
+    /**
+     * Scroll the {@link JScrollPane} to the bottom.
+     * 
+     * @param jScrollPane {@link JScrollPane} to scroll
+     */
     private void scrollToBottom(final JScrollPane jScrollPane) {
         SwingUtilities.invokeLater(new Runnable() {
 
@@ -360,6 +388,11 @@ public class RecipePanel extends javax.swing.JPanel implements PanelRemovedEvent
         });
     }
 
+    /**
+     * Call the {@link RecipeService#save(Recipe)}
+     * 
+     * @param evt click event
+     */
     private void saveButtonActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_saveButtonActionPerformed
         copyValues();
 
@@ -372,6 +405,9 @@ public class RecipePanel extends javax.swing.JPanel implements PanelRemovedEvent
         populateValues();
     }// GEN-LAST:event_saveButtonActionPerformed
 
+    /**
+     * Copy the values in the components back into the {@link Recipe} for sending to the service layer.
+     */
     private void copyValues() {
         recipe.setName(nameText.getText());
 

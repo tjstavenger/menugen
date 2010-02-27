@@ -18,6 +18,8 @@ import java.awt.Insets;
  * @author Babu Kalakrishnan
  */
 public class VerticalFlowLayout extends FlowLayout {
+	private static final long serialVersionUID = 1L;
+
 	public VerticalFlowLayout() {
 		super();
 	}
