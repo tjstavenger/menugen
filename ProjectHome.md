@@ -1,0 +1,1 @@
+Create a weekly menu from saved meals and generate a shopping list.
